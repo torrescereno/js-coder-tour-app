@@ -1,0 +1,31 @@
+.who{
+    background-color: #e9c46a;
+}
+
+.who__image{
+
+    div{
+        width: 100%;
+        height: 100%;
+        height: 200px;
+        background-image: url('../../img/who.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    
+}
+
+.who__text__btn{
+
+    button{
+        padding: 12px;
+        border: 2px solid white;
+        color: white;
+    };
+
+    button:hover{
+        color: #a8dadc;
+        background-color: white;
+    };
+    
+};

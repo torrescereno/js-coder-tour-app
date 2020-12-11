@@ -1,0 +1,28 @@
+a{
+    color: white;
+    text-decoration: none;
+}
+
+a:hover{
+    color: white;
+}
+
+body{
+    color: white;
+}
+
+/* body::-webkit-scrollbar{
+    width: 10px;
+    background-color: transparent;
+}
+
+body::-webkit-scrollbar-thumb{
+    background: black;
+    border-radius: 2px;
+}
+ */
+
+::-webkit-scrollbar {
+    display: none;
+}
+

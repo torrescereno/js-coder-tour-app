@@ -1,0 +1,28 @@
+.product__content{
+
+    cursor: pointer;
+
+    span {
+        outline: 2px solid white;
+    }
+
+    img{
+        width: 200px;
+    }
+
+    h4{
+        margin-top: 15px;
+    }
+}
+
+.product__content:hover{
+    outline: 2px solid white;
+
+}
+
+.product__content__button{
+
+    div div button{
+        color: white;
+    }
+}

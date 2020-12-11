@@ -1,0 +1,111 @@
+a {
+  color: white;
+  text-decoration: none; }
+
+a:hover {
+  color: white; }
+
+body {
+  color: white; }
+
+/* body::-webkit-scrollbar{
+    width: 10px;
+    background-color: transparent;
+}
+
+body::-webkit-scrollbar-thumb{
+    background: black;
+    border-radius: 2px;
+}
+ */
+::-webkit-scrollbar {
+  display: none; }
+
+.navBar {
+  background: transparent;
+  font-family: "Capriola", sans-serif;
+  position: fixed;
+  font-size: 14px;
+  height: 50px;
+  width: 100%;
+  z-index: 1; }
+
+.navBar__btn__custom .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><path stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/></svg>"); }
+
+.navBar__btn__custom.navbar-toggler {
+  border: none; }
+
+/* .navBar__btn__custom:active{
+    display: none;
+}
+ */
+.navBar__btn__custom:focus {
+  outline: 0; }
+
+.banner {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .banner .banner__overlay {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -99;
+    background: black;
+    opacity: 0.3; }
+  .banner video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    object-fit: cover;
+    object-position: center;
+    z-index: -100; }
+  .banner .banner__content {
+    position: relative;
+    text-align: center;
+    z-index: 3; }
+
+.who {
+  background-color: #e9c46a; }
+
+.who__image div {
+  width: 100%;
+  height: 100%;
+  height: 200px;
+  background-image: url("../../img/who.svg");
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.who__text__btn button {
+  padding: 12px;
+  border: 2px solid white;
+  color: white; }
+
+.who__text__btn button:hover {
+  color: #a8dadc;
+  background-color: white; }
+
+.product__content {
+  cursor: pointer; }
+  .product__content span {
+    outline: 2px solid white; }
+  .product__content img {
+    width: 200px; }
+  .product__content h4 {
+    margin-top: 15px; }
+
+.product__content:hover {
+  outline: 2px solid white; }
+
+.product__content__button div div button {
+  color: white; }
