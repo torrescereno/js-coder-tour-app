@@ -21,6 +21,15 @@ body::-webkit-scrollbar-thumb{
 ::-webkit-scrollbar {
   display: none; }
 
+@media (min-width: 1025px) {
+  /* Home */
+  .banner .container-fluid {
+    /* Fonts Home */ }
+    .banner .container-fluid .banner__content div h1 {
+      font-size: 5vw; }
+    .banner .container-fluid .banner__content div p {
+      font-size: 1.5vw; } }
+
 .navBar {
   background: transparent;
   font-family: "Capriola", sans-serif;
@@ -74,6 +83,29 @@ body::-webkit-scrollbar-thumb{
     position: relative;
     text-align: center;
     z-index: 3; }
+    .banner .banner__content div h1 {
+      font-size: 10vw; }
+    .banner .banner__content div p {
+      font-size: 4vw; }
+
+.banner__arrow {
+  width: 75px;
+  height: 65px; }
+  .banner__arrow:hover polygon {
+    fill: #FFF;
+    transition: all .2s ease-out; }
+    .banner__arrow:hover polygon.arrow-bottom {
+      transform: translateY(-18px); }
+    .banner__arrow:hover polygon.arrow-top {
+      transform: translateY(18px); }
+
+polygon {
+  fill: #FFF;
+  transition: all .2s ease-out; }
+  polygon.arrow-middle {
+    opacity: 0.75; }
+  polygon.arrow-top {
+    opacity: 0.5; }
 
 .who {
   background-color: #e9c46a; }
