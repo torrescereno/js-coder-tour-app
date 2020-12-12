@@ -87,25 +87,13 @@ body::-webkit-scrollbar-thumb{
       font-size: 10vw; }
     .banner .banner__content div p {
       font-size: 4vw; }
-
-.banner__arrow {
-  width: 75px;
-  height: 65px; }
-  .banner__arrow:hover polygon {
-    fill: #FFF;
-    transition: all .2s ease-out; }
-    .banner__arrow:hover polygon.arrow-bottom {
-      transform: translateY(-18px); }
-    .banner__arrow:hover polygon.arrow-top {
-      transform: translateY(18px); }
-
-polygon {
-  fill: #FFF;
-  transition: all .2s ease-out; }
-  polygon.arrow-middle {
-    opacity: 0.75; }
-  polygon.arrow-top {
-    opacity: 0.5; }
+    .banner .banner__content div .banner__content__arrow {
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+      border-top: 2px solid white;
+      border-right: 2px solid white;
+      transform: rotate(135deg); }
 
 .who {
   background-color: #e9c46a; }

@@ -43,45 +43,17 @@
       p {
         font-size: 4vw;
       }
+
+      .banner__content__arrow{
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        border-top: 2px solid white;
+        border-right: 2px solid white;
+        transform: rotate(135deg);
+      }
     }
   }
 }
 
 
-  .banner__arrow {
-    width: 75px;
-    height: 65px;
-    
-    &:hover {
-      
-      polygon {
-        fill: #FFF;
-        transition: all .2s ease-out;
-  
-        &.arrow-bottom {
-          transform: translateY(-18px);
-        }
-  
-        &.arrow-top {
-          transform: translateY(18px);
-        }
-        
-      }
-    
-    }
-    
-  }
-  
-  polygon {
-    fill: #FFF;
-    transition: all .2s ease-out;
-      
-    &.arrow-middle {
-        opacity: 0.75;
-      }
-  
-      &.arrow-top {
-        opacity: 0.5
-      }
-       
-  }
