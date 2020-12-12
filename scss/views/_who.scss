@@ -1,31 +1,26 @@
 .who{
     background-color: #e9c46a;
+    letter-spacing: .17px;
 }
 
-.who__image{
+.who__content{
 
-    div{
-        width: 100%;
-        height: 100%;
-        height: 200px;
-        background-image: url('../../img/who.svg');
-        background-repeat: no-repeat;
-        background-position: center;
+    .who__content__icon{
+
+        img{
+            max-width: 100%;
+            max-height: 440px;
+        }
     }
-    
+
+    .who__content__text{
+
+        h2{
+            font-size: 42px;
+            padding-bottom: 10px;
+        }
+        p{
+            font-size: 20px;
+        }
+    }
 }
-
-.who__text__btn{
-
-    button{
-        padding: 12px;
-        border: 2px solid white;
-        color: white;
-    };
-
-    button:hover{
-        color: #a8dadc;
-        background-color: white;
-    };
-    
-};

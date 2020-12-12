@@ -43,17 +43,31 @@
       p {
         font-size: 4vw;
       }
-
-      .banner__content__arrow{
-        display: inline-block;
-        width: 25px;
-        height: 25px;
-        border-top: 2px solid white;
-        border-right: 2px solid white;
-        transform: rotate(135deg);
-      }
     }
   }
 }
 
+.banner__arrow{
+
+  position: absolute;
+  left: 0;
+  bottom: 30px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+
+  .banner__content__arrow{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+    transform: rotate(135deg);
+    cursor: pointer;
+    
+  }
+  
+  
+}
 
