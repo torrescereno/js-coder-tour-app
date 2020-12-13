@@ -126,7 +126,6 @@ body::-webkit-scrollbar-thumb{
   font-size: 20px; }
 
 .service__content div {
-  box-shadow: -10px 25px 50px rgba(0, 0, 0, 0.3);
   margin: 10px;
   padding: 10px;
   cursor: pointer; }
@@ -148,6 +147,7 @@ body::-webkit-scrollbar-thumb{
       color: #6aaebf; }
 
 .service__content div:hover {
+  box-shadow: -10px 25px 50px rgba(0, 0, 0, 0.3);
   animation: shake .4s 1;
   animation-delay: .2s; }
 
