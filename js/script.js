@@ -1,6 +1,6 @@
 'use strict';
 
-function msjAlert(){
+/* function msjAlert(){
 
     let email = prompt('Ingresa tu correo si quieres recibir información de promociones');
 
@@ -19,6 +19,7 @@ function msjAlert(){
             break;
         }
     }
-};
+}; */
 
 //msjAlert();
+
