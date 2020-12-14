@@ -249,9 +249,9 @@
                         <p>
                             Ingresa tu correo para recibir ofertas
                         </p>
-                        <form action="">
-                            <div class="form-group">
-                                <input type="email" name="" id="" aria-describedby="helpId"
+                        <form action="" name="newsForm" onsubmit="return suscribeNewsLetter()" method="">
+                            <div class="form-group" >
+                                <input type="email" name="email" id="" aria-describedby="helpId"
                                     placeholder="Tu email y presiona enter">
                             </div>
                             <div class="form-group">
@@ -259,7 +259,7 @@
                                     Al enviar mí email estoy aceptando las <a href="#">Políticas de Privacidad.</a>
                                 </p>
                             </div>
-                            <input type="submit">
+                            <input type="submit" value="Submit">
                         </form>
                     </div>
 
@@ -295,12 +295,10 @@
 
                 </div>
             </div>
-            
+
         </div>
 
     </div>
-
-
 
     <!-- JS Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

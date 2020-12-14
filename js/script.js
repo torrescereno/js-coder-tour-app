@@ -1,25 +1,47 @@
 'use strict';
 
-/* function msjAlert(){
+/* Objetos */
 
-    let email = prompt('Ingresa tu correo si quieres recibir información de promociones');
+function User(id, name, email) {
 
-    const emailRegex = new RegExp("^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$")
+    this.id = id;
+	this.name = name;
+	this.email = email;
 
-    while(true){
+	/* this.getName = function () {
+		return this.nombre;
+	};
 
-        if (email !== '') {
-            if (emailRegex.exec(email)) {
-                alert('Gracias!!');
-                break;
-            }else{
-                email = prompt('El email ingresado no es valido, por favor ingreselo nuevamenteasd');
-            }
-        }else{
-            break;
-        }
-    }
-}; */
+	this.setName = cambiarNombre; */
+};
 
-//msjAlert();
+function Cities(id, name, price, desciption){
 
+    this.id = id;
+    this.name = name;
+    this.price = price;
+    this.desciption = desciption;
+};
+
+function Hotel(id, name, stars, desciption) {
+
+    this.id = id;
+    this.name = name;
+    this.stars = stars;
+    this.desciption = desciption;
+};
+
+
+/* Suscribe Newsletter */
+
+function suscribeNewsLetter() {
+
+    const email = document.forms["newsForm"]["email"].value;
+
+    // Crear un usuario test
+    const user = new User(1, "suscriber", email);
+    console.log(user);
+
+    alert(`Gracias ${email} por susciribrse !`)
+    
+  }
