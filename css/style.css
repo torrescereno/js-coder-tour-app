@@ -4,15 +4,15 @@
   box-sizing: border-box; }
 
 a {
-  color: white;
+  color: #ffffff;
   text-decoration: none; }
 
 a:hover {
-  color: white; }
+  color: #ffffff; }
 
 body {
-  color: white;
-  background-color: #6aaebf; }
+  color: #ffffff;
+  background-color: #3fb0ac; }
 
 /* body::-webkit-scrollbar{
     width: 10px;
@@ -64,7 +64,8 @@ body::-webkit-scrollbar-thumb{
   overflow: hidden;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  color: #ffffff; }
   .banner .banner__overlay {
     height: 100%;
     width: 100%;
@@ -166,10 +167,10 @@ body::-webkit-scrollbar-thumb{
     transform: rotate(0); } }
 
 .travel__title {
-  margin-top: 50px; }
+  padding-top: 50px; }
 
 .travel__arrows {
-  margin-top: 30px; }
+  padding-top: 30px; }
 
 .travel__arrows__content {
   white-space: nowrap;

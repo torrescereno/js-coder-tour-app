@@ -94,9 +94,9 @@
 
         </div>
 
-        <!-- SERVICIOS -->
+        <!-- SERVICIOS / DESTINOS DISPONIBLES -->
 
-        <div class="service container-fluid text-center ">
+        <div class="service container-fluid text-center pt-5 pb-lg-5">
 
             <div class="row justify-content-center">
                 <h2>Destinos disponibles</h2>
@@ -109,7 +109,7 @@
 
                     <span class="d-xl-inline-flex justify-content-between w-50">
                         <button class="btn">Cotizar</button>
-                        <button class="btn">Detalles</button>
+                        <button class="btn" data-toggle="modal" data-target="#serviceModal">Detalles</button>
                     </span>
 
                 </div>
@@ -118,7 +118,7 @@
                     <h6>New York</h6>
                     <span class="d-xl-inline-flex justify-content-between w-50">
                         <button class="btn">Cotizar</button>
-                        <button class="btn">Detalles</button>
+                        <button class="btn" data-toggle="modal" data-target="#serviceModal">Detalles</button>
                     </span>
                 </div>
                 <div class="col-9 col-md-7 col-lg-3">
@@ -126,7 +126,7 @@
                     <h6>Miami</h6>
                     <span class="d-xl-inline-flex justify-content-between w-50">
                         <button class="btn">Cotizar</button>
-                        <button class="btn">Detalles</button>
+                        <button class="btn" data-toggle="modal" data-target="#serviceModal">Detalles</button>
                     </span>
                 </div>
             </div>
@@ -137,7 +137,7 @@
                     <h6>Paris</h6>
                     <span class="d-xl-inline-flex justify-content-between w-50">
                         <button class="btn">Cotizar</button>
-                        <button class="btn">Detalles</button>
+                        <button class="btn" data-toggle="modal" data-target="#serviceModal">Detalles</button>
                     </span>
                 </div>
                 <div class="col-9 col-md-7 col-lg-3">
@@ -145,23 +145,41 @@
                     <h6>Roma</h6>
                     <span class="d-xl-inline-flex justify-content-between w-50">
                         <button class="btn">Cotizar</button>
-                        <button class="btn">Detalles</button>
+                        <button class="btn" data-toggle="modal" data-target="#serviceModal">Detalles</button>
                     </span>
                 </div>
             </div>
 
+            <!-- DETALLES DE LOS DESTINOS MODAL -->
+
+            <div class="modal fade text-dark" id="serviceModal" tabindex="-1" role="dialog" aria-labelledby="serviceModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="serviceModalLabel">Modal titulo</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Cuerpo del modal
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
 
-        <!-- SERVICIOS MODAL -->
-
-        <div>
-
-        </div>
+        
 
         <!-- SIMULADOR DE VIAJE -->
 
-        <div class="travel container-fluid">
+        <hr>
+
+        <div class="travel container-fluid pb-lg-5">
 
             <div class="travel__title row justify-content-center">
                 <h2>Viajar</h2>
@@ -185,7 +203,8 @@
                 <button class="btn" onclick="cotizar()">COTIZAR TEST</button>
             </div>
         </div>
-        <hr>
+        
+        <hr>    
 
         <!-- CONTACTO -->
         <!-- / NOMBRE
@@ -234,7 +253,7 @@
 
     <!-- FOOTER -->
     <!-- / RRSS 
-        / MAPA -->
+         / TERMINOS Y CONDICONES -->
 
     <div class="container-fluid footer">
 
