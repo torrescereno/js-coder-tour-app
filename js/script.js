@@ -1,14 +1,16 @@
 'use strict';
 
-/* Objetos */
+/* CLASES */
 
 /* Usario */
 
-function User(id = 1, name, email) {
+class User{
 
-    this.id = id;
-	this.name = name;
-	this.email = email;
+    constructor(id = 1, name, email){
+        this.id = id;
+        this.name = name;
+        this.email = email;
+    };
 
 	/* this.getName = function () {
 		return this.nombre;
@@ -19,25 +21,30 @@ function User(id = 1, name, email) {
 
 /* Ciudades */
 
-function Cities(id, name, price, desciption){
+class Cities{
 
-    this.id = id;
-    this.name = name;
-    this.price = price;
-    this.desciption = desciption;
+    constructor(id, name, price, desciption){
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.desciption = desciption;
+    };
+
+    
 };
 
 /* Hoteles */
 
-function Hotel(id, name, stars, price, desciption) {
-
-    this.id = id;
-    this.name = name;
-    this.stars = stars;
-    this.price = price;
-    this.desciption = desciption;
-};
-
+class Hotel{
+    
+    constructor(id, name, stars, price, desciption){
+        this.id = id;
+        this.name = name;
+        this.stars = stars;
+        this.price = price;
+        this.desciption = desciption;
+    }
+}
 
 
 /* Suscribe Newsletter */
@@ -53,7 +60,6 @@ function suscribeNewsLetter() {
     alert(`Gracias ${email} por susciribrse !`)
     
   }
-
 
 
 // Objetos base con arreglos [pendiente convertir en json]
