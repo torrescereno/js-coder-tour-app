@@ -147,7 +147,7 @@ function cotizar() {
     const total = (arrCities[destino-1].price + hoteles[hotel - 1].price) * cantPasajeros;
 
     alert(`
-        Resultado de la cotizacion:
+        Resultado de la cotizacion: 
         Nombre: ${nombre}
         Destino seleccionado: ${arrCities[destino-1].name}
         Precio del vuelo: ${total}
