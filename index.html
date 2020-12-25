@@ -34,10 +34,10 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navBar__content">
                 <div class="navBar__content__link navbar-nav w-50 justify-content-around">
-                    <a class="nav-item nav-link " href="#">Quien somos</a>
-                    <a class="nav-item nav-link " href="#">Destinos</a>
-                    <a class="nav-item nav-link " href="#">Viajar</a>
-                    <a class="nav-item nav-link " href="#">Contacto</a>
+                    <a class="nav-item nav-link " href="#who">Quien somos</a>
+                    <a class="nav-item nav-link " href="#service">Destinos</a>
+                    <a class="nav-item nav-link " href="#travel">Viajar</a>
+                    <a class="nav-item nav-link " href="#contact">Contacto</a>
                 </div>
             </div>
         </nav>
@@ -61,7 +61,7 @@
                     </div>
                 </div>
 
-                <div class="row banner__arrow">
+                <div class="row banner__arrow" onclick="location.href='#who'">
                     <span class="banner__content__arrow"></span>
                 </div>
 
@@ -73,7 +73,7 @@
         <!-- / COMPROMISO
              / HISTORIA -->
 
-        <div class="who container-fluid">
+        <div class="container-fluid" id="who">
 
             <div class="container-fluid">
                 <div class="row who__content justify-content-center align-items-center p-2 p-lg-5 m-auto">
@@ -96,59 +96,7 @@
 
         <!-- SERVICIOS / DESTINOS DISPONIBLES -->
 
-        <div class="service container-fluid text-center pt-5 pb-lg-5">
-
-            <div class="row justify-content-center">
-                <h2>Destinos disponibles</h2>
-            </div>
-
-            <div class="row service__content justify-content-center mt-2 mt-lg-4">
-                <div class="col-9 col-md-7 col-lg-3">
-                    <img src="img/beach.svg" alt="">
-                    <h6>Cancún</h6>
-
-                    <span class="d-xl-inline-flex justify-content-between w-50">
-                        <button class="btn">Cotizar</button>
-                        <button class="btn" data-toggle="modal" data-target="#serviceModal">Detalles</button>
-                    </span>
-
-                </div>
-                <div class="col-9 col-md-7 col-lg-3">
-                    <img src="img/new-york.svg" alt="">
-                    <h6>New York</h6>
-                    <span class="d-xl-inline-flex justify-content-between w-50">
-                        <button class="btn">Cotizar</button>
-                        <button class="btn" data-toggle="modal" data-target="#serviceModal">Detalles</button>
-                    </span>
-                </div>
-                <div class="col-9 col-md-7 col-lg-3">
-                    <img src="img/beach.svg" alt="">
-                    <h6>Miami</h6>
-                    <span class="d-xl-inline-flex justify-content-between w-50">
-                        <button class="btn">Cotizar</button>
-                        <button class="btn" data-toggle="modal" data-target="#serviceModal">Detalles</button>
-                    </span>
-                </div>
-            </div>
-
-            <div class="row service__content  justify-content-center mt-2 mt-lg-3">
-                <div class="col-9 col-md-7 col-lg-3">
-                    <img src="img/paris.svg" alt="">
-                    <h6>Paris</h6>
-                    <span class="d-xl-inline-flex justify-content-between w-50">
-                        <button class="btn">Cotizar</button>
-                        <button class="btn" data-toggle="modal" data-target="#serviceModal">Detalles</button>
-                    </span>
-                </div>
-                <div class="col-9 col-md-7 col-lg-3">
-                    <img src="img/coliseum.svg" alt="">
-                    <h6>Roma</h6>
-                    <span class="d-xl-inline-flex justify-content-between w-50">
-                        <button class="btn">Cotizar</button>
-                        <button class="btn" data-toggle="modal" data-target="#serviceModal">Detalles</button>
-                    </span>
-                </div>
-            </div>
+        <div class="container-fluid text-center pt-5 pb-lg-5" id="service">
 
             <!-- DETALLES DE LOS DESTINOS MODAL -->
 
@@ -173,13 +121,12 @@
 
         </div>
 
-        
 
         <!-- SIMULADOR DE VIAJE -->
 
         <hr>
 
-        <div class="travel container-fluid pb-lg-5">
+        <div class="container-fluid pb-lg-5" id="travel">
 
             <div class="travel__title row justify-content-center">
                 <h2>Viajar</h2>
@@ -213,7 +160,7 @@
             / TELEFONO
             / MENSAJE -->
 
-        <div class="contact container">
+        <div class="container" id="contact">
 
             <div class="row justify-content-center mt-md-5 mb-5">
 

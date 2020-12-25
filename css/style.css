@@ -1,7 +1,8 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  scroll-behavior: smooth; }
 
 a {
   color: #ffffff;
@@ -112,7 +113,7 @@ body::-webkit-scrollbar-thumb{
     transform: rotate(135deg);
     cursor: pointer; }
 
-.who {
+#who {
   letter-spacing: .17px; }
 
 .who__content .who__content__icon img {

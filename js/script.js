@@ -23,11 +23,12 @@ class User{
 
 class Cities{
 
-    constructor(id, name, price, desciption){
+    constructor(id, name, price, desciption, img){
         this.id = id;
         this.name = name;
         this.price = price;
         this.desciption = desciption;
+        this.img = img;
     };
 
     
@@ -46,30 +47,16 @@ class Hotel{
     }
 }
 
-
-/* Suscribe Newsletter */
-
-function suscribeNewsLetter() {
-
-    const email = document.forms["newsForm"]["email"].value;
-
-    // Crear un usuario test
-    const user = new User(1, "suscriber", email);
-    console.log(user);
-
-    alert(`Gracias ${email} por susciribrse !`)
-    
-  }
-
+// --------------------------------------------------
 
 // Objetos base con arreglos [pendiente convertir en json]
 
 
-const cacun = new Cities(1, 'Cacun', 10000, 'Lorem ipsum dolor sit amet');
-const newYork = new Cities(2, 'New York', 20000, 'Lorem ipsum dolor sit amet');
-const miami = new Cities(3, 'Miami', 30000, 'Lorem ipsum dolor sit amet');
-const paris = new Cities(4, 'Paris', 40000, 'Lorem ipsum dolor sit amet');
-const roma = new Cities(5, 'Roma', 50000, 'Lorem ipsum dolor sit amet');
+const cacun = new Cities(1, 'Cacun', 10000, 'Lorem ipsum dolor sit amet', 'img/beach.svg');
+const newYork = new Cities(2, 'New York', 20000, 'Lorem ipsum dolor sit amet', 'img/new-york.svg');
+const miami = new Cities(3, 'Miami', 30000, 'Lorem ipsum dolor sit amet', 'img/beach.svg');
+const paris = new Cities(4, 'Paris', 40000, 'Lorem ipsum dolor sit amet', 'img/paris.svg');
+const roma = new Cities(5, 'Roma', 50000, 'Lorem ipsum dolor sit amet', 'img/coliseum.svg');
 
 const arrCities = [
     cacun,
@@ -104,7 +91,96 @@ const arrHoteles = [
     [4, hotelRoma02]
 ];
 
+// --------------------------------------------------
 
+
+/* Suscribe Newsletter */
+
+function suscribeNewsLetter() {
+
+    const email = document.forms["newsForm"]["email"].value;
+
+    // Crear un usuario test
+    const user = new User(1, "suscriber", email);
+    console.log(user);
+
+    alert(`Gracias ${email} por susciribrse !`)
+    
+  }
+
+
+/**
+ * Funcion de ejercicio para la creacion dinamica de elemntos y anidacion de nodos
+ * Crea dinamicamente la seccion de ciudades disponibles, segun el arreglo de ciudades
+ * @param 
+ */
+
+function createSectionCities() {
+
+    // Div principal
+    const divService = document.querySelector('#service');
+
+
+    // Nodo del titulo
+    const nodeTitle = document.createElement('div');
+    nodeTitle.classList.add("row" , "justify-content-center");
+
+    const nodeH2 = document.createElement('h2');
+    nodeH2.textContent = 'Destinos disponibles';
+
+    nodeTitle.appendChild(nodeH2)
+
+    // Insertar nodo de titulo
+    divService.appendChild(nodeTitle)
+
+    // Crar row de seccion de ciudades
+    const nodeRowCities = document.createElement('div');
+    nodeRowCities.classList.add('row', 'service__content', 'justify-content-center', 'mt-2',  'mt-lg-4');
+
+    for (let x = 0; x < arrCities.length; x++) {
+                // nodeDivCities 
+        const nodeDivCities =  document.createElement('div');
+        nodeDivCities.classList.add('col-9', 'col-md-7', 'col-lg-3');
+
+        // IMG
+        const imgCities = document.createElement('img');
+        imgCities.setAttribute('src', arrCities[x].img)
+
+        // Title cities
+        const titleCities = document.createElement('h6');
+        titleCities.textContent = arrCities[x].name;
+
+        // Seccion span de botones
+        const spanCities = document.createElement('span');
+        spanCities.classList.add('d-xl-inline-flex', 'justify-content-between', 'w-50');
+
+        // creacion de botones
+        const btnCotizar = document.createElement('button');
+        btnCotizar.classList.add('btn');
+        btnCotizar.setAttribute('onclick', "location.href='#travel'")
+        btnCotizar.textContent = 'Cotizar';
+        
+
+        const btnDetalles = document.createElement('button');
+        btnDetalles.classList.add('btn');
+        btnDetalles.setAttribute('data-toggle', 'modal');
+        btnDetalles.setAttribute('data-target', '#serviceModal');
+        btnDetalles.textContent = 'Deatalles';
+
+
+        // Union de nodos
+        nodeRowCities.appendChild(nodeDivCities);
+
+        nodeDivCities.appendChild(imgCities);
+        nodeDivCities.appendChild(titleCities);
+        nodeDivCities.appendChild(spanCities);
+        spanCities.appendChild(btnCotizar);
+        spanCities.appendChild(btnDetalles);
+
+        divService.appendChild(nodeRowCities);
+    }
+
+}
 
 // --------------------------------------------------  funcion temp //
 
@@ -163,3 +239,14 @@ function cotizar() {
 }
 
 // --------------------------------------------------  funcion temp //
+
+
+
+// Ejecicon de funciones
+
+createSectionCities();
+
+// window.onload = () => {
+//     createSectionCities();
+// };
+
