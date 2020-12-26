@@ -1,4 +1,8 @@
 
+#travel{
+    min-height: 600px;    
+}
+
 .travel__title{
     padding-top: 50px;
 }
@@ -7,9 +11,10 @@
     padding-top: 30px;
 }
 
+
 .travel__arrows__content { 
     white-space: nowrap;
-    text-align: center; 
+    text-align: center;
 
     li{
         font-size: 20px;
@@ -21,6 +26,10 @@
         position: relative;
         letter-spacing: 1px; 
         text-decoration: none;
+
+        a{
+            text-decoration: none;
+        }
     }
 }
 
@@ -53,3 +62,114 @@
 .travel__arrows__content li:nth-of-type(2) a { color: white(0, 0%, 65%); } 
 .travel__arrows__content li:nth-of-type(3) a { color: white(0, 0%, 50%); } 
 .travel__arrows__content li:nth-of-type(4) a { color: white(0, 0%, 45%); } */
+
+.travel__form{
+    box-shadow: -10px 25px 50px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+
+    div{
+
+        div{
+
+            label{
+                margin-bottom: 10px;
+            }
+
+            input{
+                background-color: transparent;
+                border: none;
+                border-radius: 0; 
+                border-bottom: 2px solid white;
+                margin-bottom: 10px;
+            }
+
+            input:focus{ 
+                background-color: transparent;
+                border-bottom: 2px solid white;
+                outline: none;
+                outline-width: 0;
+                box-shadow: none;
+                -moz-box-shadow: none;
+                -webkit-box-shadow: none;
+            }
+
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            button{
+
+                width: 100%;
+                border: 2px solid white;
+                color: white;
+                border-radius: 0;
+                margin-top: 20px;
+            }
+
+            button:hover{
+                color: white;
+            }
+        }
+    }
+
+    .travel__contenedor__cities{
+        text-align: center;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: space-around;
+
+        padding: 20px;
+        cursor: pointer;
+        outline: 1px solid white;
+        margin: 10px;
+
+        img {
+            display: none;
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .travel__contenedor__hotel{
+        
+        cursor: pointer;
+        text-align: center;
+        padding: 10px;
+        margin: 5px;
+
+
+        img{
+            display: inline;
+            width: 30%;
+        }
+        
+    }
+
+    /* .travel__contenedor__cities:hover{
+        outline: 3px solid white;  
+    }*/
+
+    .travel__form__datos{
+        display: none;
+    }
+
+    .travel__form__cities{
+       /*  display: none; */
+    }
+
+    .travel__form__people{
+        display: none;
+    }
+
+    .travel__form__hotel{
+        display: none;
+    }
+
+    .travel__form__result{
+        display: none;
+    }
+    
+}

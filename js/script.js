@@ -31,7 +31,6 @@ class Cities{
         this.img = img;
     };
 
-    
 };
 
 /* Hoteles */
@@ -182,6 +181,33 @@ function createSectionCities() {
 
 }
 
+
+function selectCitie(element) {
+
+
+    let imgStyle =  element.childNodes[3].style
+    let divStyle = element.style;
+    let divElement = document.querySelectorAll('.travel__contenedor__cities');
+    const numNodes = document.querySelectorAll('.travel__contenedor__cities').length;
+
+
+    if(imgStyle.display === 'inline'){
+        imgStyle.display = 'none';
+        divStyle.outline = '1px solid white'
+    }else{
+
+        for (let i = 0; i < numNodes; i++) {
+            divElement[i].childNodes[3].style.display = 'none'
+            divElement[i].style.outline = '1px solid white'
+        }
+
+        imgStyle.display = 'inline'
+        divStyle.outline = '3px solid white'
+
+    }
+
+}
+
 // --------------------------------------------------  funcion temp //
 
 function cotizar() {
@@ -242,11 +268,11 @@ function cotizar() {
 
 
 
+//test();
+
 // Ejecicon de funciones
 
-createSectionCities();
-
-// window.onload = () => {
-//     createSectionCities();
-// };
+window.onload = () => {
+    createSectionCities();
+};
 
