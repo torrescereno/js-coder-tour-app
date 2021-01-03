@@ -142,7 +142,8 @@
             <div class="row justify-content-center align-content-center">
 
                 <!-- Form dinamino -->
-                <form action="" class="travel__form col-10 col-lg-6 mt-md-3">
+                <form class="travel__form col-10 col-lg-6 mt-md-3">
+
 
                     <!-- DATOS FORM -->
                     <div class="row travel__form__datos justify-content-center align-content-center p-1"
@@ -153,16 +154,16 @@
 
                         <div class="col-12 col-md-5 p-md-3">
                             <label for="" class="form-label">Nombre:</label>
-                            <input type="text" class="form-control" id="" />
+                            <input type="text" class="form-control" id="" required />
                         </div>
 
                         <div class="col-12 col-md-5 p-md-3">
                             <label for="" class="form-label">Email:</label>
-                            <input type="email" class="form-control" id="" />
+                            <input type="email" class="form-control" id="" required />
                         </div>
 
                         <div class="col-12 col-md-10 text-center">
-                            <button class="btn" onclick="nextBock()">Siguiente</button>
+                            <a role="button" class="btn form__btn__next">Siguiente</a>
                         </div>
 
                     </div>
@@ -201,7 +202,7 @@
                         </div>
 
                         <div class="col-12 col-md-10 text-center">
-                            <button class="btn">Siguiente</button>
+                            <a role="button" class="btn form__btn__next">Siguiente</a>
                         </div>
 
                     </div>
@@ -216,12 +217,12 @@
 
                         <div class="col-12 col-md-10 p-md-3">
                             <label for="" class="form-label">Numero de pasajeros:</label>
-                            <input type="number" min="0" max="100" maxlength="3" class="form-control" id="" />
+                            <input type="number" min="1" max="100" maxlength="3" value="1" class="form-control" id="" />
                         </div>
 
 
                         <div class="col-12 col-md-10 text-center">
-                            <button class="btn">Siguiente</button>
+                            <a role="button" class="btn form__btn__next">Siguiente</a>
                         </div>
 
                     </div>
@@ -231,27 +232,27 @@
                     <div class="row travel__form__hotel justify-content-center align-content-center p-1"
                         id="travelHotel">
                         <div class="col-12 p-md-3 pb-3 text-center">
-                            <p>Selecione el hotel</p>
+                            <p>Selecione las estrellas del hotel</p>
                         </div>
 
-                        <div class="col-10 col-md-3 travel__contenedor__hotel" id='' onclick="">
-                            <img src="img/three.svg" alt="">
+                        <div class="col-10 col-md-3 travel__contenedor__hotel">
+                            <img src="img/three_black.svg" id='hotel_three' alt="">
                         </div>
 
-                        <div class="col-10 col-md-3 travel__contenedor__hotel" id='' onclick="">
-                            <img src="img/four.svg" alt="">
+                        <div class="col-10 col-md-3 travel__contenedor__hotel">
+                            <img src="img/four_black.svg" id='hotel_four' alt="">
                         </div>
 
-                        <div class="col-10 col-md-3 travel__contenedor__hotel" id='' onclick="">
-                            <img src="img/five.svg" alt="">
+                        <div class="col-10 col-md-3 travel__contenedor__hotel">
+                            <img src="img/five_black.svg" id='hotel_five' alt="">
                         </div>
 
 
                         <div class="col-12 col-md-5 text-center">
-                            <button class="btn">Destalles</button>
+                            <a role="button" class="btn">Destalles</a>
                         </div>
                         <div class="col-12 col-md-5 text-center">
-                            <button class="btn">Siguiente</button>
+                            <a role="button" class="btn form__btn__next">Siguiente</a>
                         </div>
 
 
@@ -280,10 +281,10 @@
                         </div>
 
                         <div class="col-12 col-md-5 text-center">
-                            <button class="btn">Volver a cotizar</button>
+                            <a class="btn">Volver a cotizar</a>
                         </div>
                         <div class="col-12 col-md-5 text-center">
-                            <button class="btn">Ver fechas disponibles</button>
+                            <a class="btn">Fechas disponibles</a>
                         </div>
 
                     </div>
@@ -291,10 +292,6 @@
                 </form>
             </div>
 
-            <!-- Boton temporal para cotizar -->
-            <!-- <div class="col-12 text-center">
-                <button class="btn" onclick="cotizar()">COTIZAR TEST</button>
-            </div> -->
         </div>
 
         <!-- CONTACTO -->

@@ -63,6 +63,7 @@
 .travel__arrows__content li:nth-of-type(3) a { color: white(0, 0%, 50%); } 
 .travel__arrows__content li:nth-of-type(4) a { color: white(0, 0%, 45%); } */
 
+
 .travel__form{
     box-shadow: -10px 25px 50px rgba(0, 0, 0, 0.3);
     padding: 30px;
@@ -99,6 +100,19 @@
                 margin: 0;
             }
 
+            a{
+
+                width: 100%;
+                border: 2px solid white;
+                color: white;
+                border-radius: 0;
+                margin-top: 20px;
+            }
+
+            button:hover{
+                color: white;
+            }
+
             button{
 
                 width: 100%;
@@ -131,6 +145,7 @@
             width: 20px;
             height: 20px;
         }
+
     }
 
     .travel__contenedor__hotel{
@@ -157,7 +172,7 @@
     }
 
     .travel__form__cities{
-       /*  display: none; */
+        display: none;
     }
 
     .travel__form__people{
@@ -165,7 +180,7 @@
     }
 
     .travel__form__hotel{
-        display: none;
+        
     }
 
     .travel__form__result{

@@ -245,6 +245,14 @@ body::-webkit-scrollbar-thumb{
   .travel__form div div input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0; }
+  .travel__form div div a {
+    width: 100%;
+    border: 2px solid white;
+    color: white;
+    border-radius: 0;
+    margin-top: 20px; }
+  .travel__form div div button:hover {
+    color: white; }
   .travel__form div div button {
     width: 100%;
     border: 2px solid white;
@@ -278,10 +286,8 @@ body::-webkit-scrollbar-thumb{
   .travel__form .travel__form__datos {
     display: none; }
   .travel__form .travel__form__cities {
-    /*  display: none; */ }
-  .travel__form .travel__form__people {
     display: none; }
-  .travel__form .travel__form__hotel {
+  .travel__form .travel__form__people {
     display: none; }
   .travel__form .travel__form__result {
     display: none; }

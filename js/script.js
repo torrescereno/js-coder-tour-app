@@ -1,29 +1,32 @@
 'use strict';
 
+// Variables globales
+const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
 /* CLASES */
 
 /* Usario */
 
-class User{
+class User {
 
-    constructor(id = 1, name, email){
+    constructor(id = 1, name, email) {
         this.id = id;
         this.name = name;
         this.email = email;
     };
 
-	/* this.getName = function () {
-		return this.nombre;
-	};
+    /* this.getName = function () {
+        return this.nombre;
+    };
 
-	this.setName = cambiarNombre; */
+    this.setName = cambiarNombre; */
 };
 
 /* Ciudades */
 
-class Cities{
+class Cities {
 
-    constructor(id, name, price, desciption, img){
+    constructor(id, name, price, desciption, img) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -35,9 +38,9 @@ class Cities{
 
 /* Hoteles */
 
-class Hotel{
-    
-    constructor(id, name, stars, price, desciption){
+class Hotel {
+
+    constructor(id, name, stars, price, desciption) {
         this.id = id;
         this.name = name;
         this.stars = stars;
@@ -104,8 +107,8 @@ function suscribeNewsLetter() {
     console.log(user);
 
     alert(`Gracias ${email} por susciribrse !`)
-    
-  }
+
+}
 
 
 /**
@@ -122,7 +125,7 @@ function createSectionCities() {
 
     // Nodo del titulo
     const nodeTitle = document.createElement('div');
-    nodeTitle.classList.add("row" , "justify-content-center");
+    nodeTitle.classList.add("row", "justify-content-center");
 
     const nodeH2 = document.createElement('h2');
     nodeH2.textContent = 'Destinos disponibles';
@@ -134,11 +137,11 @@ function createSectionCities() {
 
     // Crar row de seccion de ciudades
     const nodeRowCities = document.createElement('div');
-    nodeRowCities.classList.add('row', 'service__content', 'justify-content-center', 'mt-2',  'mt-lg-4');
+    nodeRowCities.classList.add('row', 'service__content', 'justify-content-center', 'mt-2', 'mt-lg-4');
 
     for (let x = 0; x < arrCities.length; x++) {
-                // nodeDivCities 
-        const nodeDivCities =  document.createElement('div');
+        // nodeDivCities 
+        const nodeDivCities = document.createElement('div');
         nodeDivCities.classList.add('col-9', 'col-md-7', 'col-lg-3');
 
         // IMG
@@ -158,7 +161,7 @@ function createSectionCities() {
         btnCotizar.classList.add('btn');
         btnCotizar.setAttribute('onclick', "location.href='#travel'")
         btnCotizar.textContent = 'Cotizar';
-        
+
 
         const btnDetalles = document.createElement('button');
         btnDetalles.classList.add('btn');
@@ -185,33 +188,27 @@ function createSectionCities() {
 function selectCitie(element) {
 
 
-    let imgStyle =  element.childNodes[3].style
+    let imgStyle = element.childNodes[3].style
     let divStyle = element.style;
     let divElement = document.querySelectorAll('.travel__contenedor__cities');
     const numNodes = document.querySelectorAll('.travel__contenedor__cities').length;
 
 
-    if(imgStyle.display === 'inline'){
-        imgStyle.display = 'none';
-        divStyle.outline = '1px solid white'
-    }else{
-
-        for (let i = 0; i < numNodes; i++) {
-            divElement[i].childNodes[3].style.display = 'none'
-            divElement[i].style.outline = '1px solid white'
-        }
-
-        imgStyle.display = 'inline'
-        divStyle.outline = '3px solid white'
-
+    for (let i = 0; i < numNodes; i++) {
+        divElement[i].childNodes[3].style.display = 'none'
+        divElement[i].style.outline = '1px solid white'
     }
+
+    imgStyle.display = 'inline'
+    divStyle.outline = '3px solid white'
+
 
 }
 
 // --------------------------------------------------  funcion temp //
 
 function cotizar() {
-    
+
     /* DATOS */
     const nombre = prompt('Por favor ingrese su nombre');
     const email = prompt('Por favor ingrese un email');
@@ -232,32 +229,32 @@ function cotizar() {
     /* CUANTOS VAN */
 
     const cantPasajeros = Number(prompt(`Por favor ingrese la cantidad de pasajeros`));
-    
+
     /* HOTEL */
 
     let msj = '';
     let hoteles = [];
 
-    arrHoteles.forEach( element => {
+    arrHoteles.forEach(element => {
 
-        if ( element[0] === destino - 1 ) {
+        if (element[0] === destino - 1) {
             msj += ` ${element[1].name} - Precio: ${element[1].price} \n`;
             hoteles.push(element[1]);
         }
-        
+
     });
 
     const hotel = prompt(`Seleccione un hotel: \n${msj}`);
 
-    
+
     /* COTIZACION */
 
-    const total = (arrCities[destino-1].price + hoteles[hotel - 1].price) * cantPasajeros;
+    const total = (arrCities[destino - 1].price + hoteles[hotel - 1].price) * cantPasajeros;
 
     alert(`
         Resultado de la cotizacion: 
-        Nombre: ${nombre}
-        Destino seleccionado: ${arrCities[destino-1].name}
+        Nombre: ${user.name}
+        Destino seleccionado: ${arrCities[destino - 1].name}
         Precio del vuelo: ${total}
     `);
 
@@ -266,7 +263,132 @@ function cotizar() {
 
 // --------------------------------------------------  funcion temp //
 
+function clearFromViajar() {
 
+    const divForm = Array.from(document.querySelector(".travel__form").children);
+    let divId;
+    let divFromNode;
+
+
+    // Recorrer nodos hijos
+    for (let i = 0; i < divForm.length; i++) {
+
+        divId = divForm[i].attributes.id.value;
+
+        divFromNode = document.querySelector(`#${divId}`)
+
+
+        if (i === 0) {
+            divFromNode.style.display = 'flex';
+        } else {
+            divFromNode.style.display = 'none';
+        }
+
+    }
+
+}
+
+function validBock() {
+
+
+    const divFrom = document.querySelector(".travel__form");
+
+
+    divFrom.addEventListener('click', (e) => {
+
+        if (e.target.tagName === 'A') {
+
+            const divActual = e.target.parentElement.parentElement;
+            const formInput = divActual.querySelector("input");
+            let divSiguiente = divActual.nextElementSibling;
+            let existeinput = false;
+
+            // Validar cantenido de los input
+
+            switch (divActual.attributes.id.value) {
+
+                case 'tavelDatos':
+
+                    const nameInput = formInput.form[0].value.trim();
+                    const email = formInput.form[1].value.trim();
+
+                    // Validar email y que el nombre tenag contenido
+
+                    if (nameInput !== '' && re.test(email)) {
+                        // Almacenar email y nombre
+                        existeinput = true;
+                    }
+
+                    break;
+                case 'tavelCities':
+                    // Obtener citie
+                    existeinput = true;
+                    break;
+                case 'travelPassengers':
+                    // Obtner numero de pasajeros
+                    existeinput = true;
+                    break;
+                case 'travelHotel':
+                    // Obtener hotel
+                    existeinput = true;
+                    break;
+            }
+
+            if (existeinput) {
+                divActual.style.display = 'none';
+                divSiguiente.style.display = 'flex'
+            }
+
+
+        }
+
+    });
+
+
+}
+
+function selectHotel() {
+
+    const divFormHotel = document.querySelector(".travel__form__hotel");
+
+    const hotelThree = document.querySelector("#hotel_three");
+    const hotelFour = document.querySelector("#hotel_four");
+    const hotelFive = document.querySelector("#hotel_five");
+    
+    divFormHotel.addEventListener('click', (e) => {
+        
+        if (e.target.id === 'hotel_three') {
+            hotelThree.src = 'img/three.svg';
+            hotelFour.src = 'img/four_black.svg';
+            hotelFive.src = 'img/five_black.svg';
+
+        } else if (e.target.id === 'hotel_four') {
+            hotelFour.src = 'img/four.svg';
+            hotelThree.src = 'img/three_black.svg';
+            hotelFive.src = 'img/five_black.svg';
+        } else {
+            hotelFive.src = 'img/five.svg';
+            hotelFour.src = 'img/four_black.svg';
+            hotelThree.src = 'img/three_black.svg';
+        } 
+
+    })
+  
+
+}
+
+function preSet() {
+
+    // 
+    let divDestino = document.querySelector('.travel__contenedor__cities');
+    divDestino.childNodes[3].style.display = 'inline';
+    divDestino.style.outline = '3px solid white'
+
+    //
+
+    const hotelFive = document.querySelector("#hotel_five");
+    hotelFive.src = 'img/five.svg';
+}
 
 //test();
 
@@ -274,5 +396,9 @@ function cotizar() {
 
 window.onload = () => {
     createSectionCities();
+    clearFromViajar();
+    validBock();
+    preSet();
+    selectHotel();
 };
 
