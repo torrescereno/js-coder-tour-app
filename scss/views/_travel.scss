@@ -1,7 +1,12 @@
 
 #travel{
-    min-height: 600px;    
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
+
 
 .travel__title{
     padding-top: 50px;
@@ -180,7 +185,7 @@
     }
 
     .travel__form__hotel{
-        
+        display: none;
     }
 
     .travel__form__result{

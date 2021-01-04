@@ -114,7 +114,11 @@ body::-webkit-scrollbar-thumb{
     cursor: pointer; }
 
 #who {
-  letter-spacing: .17px; }
+  /* letter-spacing: .17px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; */ }
 
 .who__content .who__content__icon img {
   max-width: 100%;
@@ -126,6 +130,13 @@ body::-webkit-scrollbar-thumb{
 
 .who__content .who__content__text p {
   font-size: 20px; }
+
+#service {
+  /* min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center; */ }
 
 .service__content div {
   margin: 10px;
@@ -169,7 +180,10 @@ body::-webkit-scrollbar-thumb{
     transform: rotate(0); } }
 
 #travel {
-  min-height: 600px; }
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
 
 .travel__title {
   padding-top: 50px; }
@@ -288,6 +302,8 @@ body::-webkit-scrollbar-thumb{
   .travel__form .travel__form__cities {
     display: none; }
   .travel__form .travel__form__people {
+    display: none; }
+  .travel__form .travel__form__hotel {
     display: none; }
   .travel__form .travel__form__result {
     display: none; }

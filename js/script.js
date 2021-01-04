@@ -184,7 +184,6 @@ function createSectionCities() {
 
 }
 
-
 function selectCitie(element) {
 
 
@@ -204,64 +203,6 @@ function selectCitie(element) {
 
 
 }
-
-// --------------------------------------------------  funcion temp //
-
-function cotizar() {
-
-    /* DATOS */
-    const nombre = prompt('Por favor ingrese su nombre');
-    const email = prompt('Por favor ingrese un email');
-
-    const user = new User(1, nombre, email);
-
-    /* DESTINO */
-    const destino = Number(prompt(`
-        Por favor ingrese un destino
-
-        1- Cacun
-        2- New York
-        3- Miami
-        4- Paris
-        5- Roma
-    `));
-
-    /* CUANTOS VAN */
-
-    const cantPasajeros = Number(prompt(`Por favor ingrese la cantidad de pasajeros`));
-
-    /* HOTEL */
-
-    let msj = '';
-    let hoteles = [];
-
-    arrHoteles.forEach(element => {
-
-        if (element[0] === destino - 1) {
-            msj += ` ${element[1].name} - Precio: ${element[1].price} \n`;
-            hoteles.push(element[1]);
-        }
-
-    });
-
-    const hotel = prompt(`Seleccione un hotel: \n${msj}`);
-
-
-    /* COTIZACION */
-
-    const total = (arrCities[destino - 1].price + hoteles[hotel - 1].price) * cantPasajeros;
-
-    alert(`
-        Resultado de la cotizacion: 
-        Nombre: ${user.name}
-        Destino seleccionado: ${arrCities[destino - 1].name}
-        Precio del vuelo: ${total}
-    `);
-
-
-}
-
-// --------------------------------------------------  funcion temp //
 
 function clearFromViajar() {
 
@@ -288,7 +229,7 @@ function clearFromViajar() {
 
 }
 
-function validBock() {
+function cotizar() {
 
 
     const divFrom = document.querySelector(".travel__form");
@@ -296,12 +237,21 @@ function validBock() {
 
     divFrom.addEventListener('click', (e) => {
 
-        if (e.target.tagName === 'A') {
+        //console.log(e);
+
+        if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') {
 
             const divActual = e.target.parentElement.parentElement;
             const formInput = divActual.querySelector("input");
             let divSiguiente = divActual.nextElementSibling;
             let existeinput = false;
+
+            let divDestino;
+            let destino;
+            let numPasajeros;
+
+
+            
 
             // Validar cantenido de los input
 
@@ -311,26 +261,101 @@ function validBock() {
 
                     const nameInput = formInput.form[0].value.trim();
                     const email = formInput.form[1].value.trim();
-
+                    
+                    
                     // Validar email y que el nombre tenag contenido
 
                     if (nameInput !== '' && re.test(email)) {
-                        // Almacenar email y nombre
+
+                        // Almacenar en storage
+                        localStorage.setItem("nombre", nameInput);
+                        localStorage.setItem("email", email)
+
                         existeinput = true;
+                    }else{
+                        alert('Debe ingresar el nombre y el email')
                     }
 
                     break;
                 case 'tavelCities':
                     // Obtener citie
+                    divDestino = document.querySelectorAll(".travel__contenedor__cities");
+                    
+                    divDestino.forEach(element => {
+
+                        if (element.lastElementChild.style.display === 'inline') {
+                            destino = element.innerText;
+                        }
+                        
+                    });
+
+                    // Alamcenar en storage
+                    localStorage.setItem("destino", destino);
+
                     existeinput = true;
                     break;
+
                 case 'travelPassengers':
                     // Obtner numero de pasajeros
+                    numPasajeros = formInput.form[2].value.trim();
+
+                    // Alamcenar en storage
+                    localStorage.setItem("pasajeros", numPasajeros);
+
                     existeinput = true;
                     break;
+
                 case 'travelHotel':
                     // Obtener hotel
+
+                    const divHotel = document.querySelectorAll(".travel__contenedor__hotel");
+                    let stars = 5;
+
+                    divHotel.forEach(element => {
+
+                        const divHotel = element.lastElementChild;
+
+
+                        if(divHotel.classList[0]){
+
+                            if (divHotel.id === 'hotel_three') {
+                                stars = 3;
+                            }else if (divHotel.id === 'hotel_four') {
+                                stars = 4;
+                            } else {
+                                stars = 5;
+                            }
+                        }
+                    });
+
+                    // Alamcenar en storage
+                    localStorage.setItem("estrellas", stars);
+
+
                     existeinput = true;
+
+                    // Mostrar resultados
+
+                    const spanNombre = document.querySelector("#resultNombre")
+                    spanNombre.innerText = `Nombre: ${localStorage.getItem("nombre")}`;
+
+                    const spanDestino= document.querySelector("#resultDestino")
+                    spanDestino.innerText = `Destino: ${localStorage.getItem("destino")}`;
+
+                    const spanPasajeros = document.querySelector("#resultPasajeros")
+                    spanPasajeros.innerText = `Cantidad de pasajeros: ${localStorage.getItem("pasajeros")}`;
+
+                    const spanTotal = document.querySelector("#resultTotal")
+                    spanTotal.innerText = `Total: `;
+
+                    break;
+
+                case 'travelResult':
+
+                    if(e.target.textContent === 'Volver a cotizar'){
+                        clearFromViajar();
+                    }
+
                     break;
             }
 
@@ -349,37 +374,64 @@ function validBock() {
 
 function selectHotel() {
 
-    const divFormHotel = document.querySelector(".travel__form__hotel");
+    const divFormHotel = document.querySelectorAll(".travel__contenedor__hotel");
 
     const hotelThree = document.querySelector("#hotel_three");
     const hotelFour = document.querySelector("#hotel_four");
     const hotelFive = document.querySelector("#hotel_five");
+
+    divFormHotel.forEach(element => {
+
+        element.addEventListener('click', (e) => {
+            
+            if (e.target.id === 'hotel_three') {
     
-    divFormHotel.addEventListener('click', (e) => {
+                hotelThree.src = 'img/three.svg';
+                hotelThree.classList = 'select';
+                
+                //
+                hotelFour.src = 'img/four_black.svg';
+                hotelFive.src = 'img/five_black.svg';
+    
+                hotelFour.classList = '';
+                hotelFive.classList = '';
+                
+    
+    
+            } else if (e.target.id === 'hotel_four') {
+                hotelFour.src = 'img/four.svg';
+                hotelFour.classList = 'select';
+    
+                //
+                hotelThree.src = 'img/three_black.svg';
+                hotelFive.src = 'img/five_black.svg';
+    
+                hotelThree.classList = '';
+                hotelFive.classList = '';
+         
+            } else if(e.target.id === 'hotel_five') {
+                hotelFive.src = 'img/five.svg';
+                hotelFive.classList = 'select';
+    
+                // 
+                hotelThree.src = 'img/three_black.svg';
+                hotelFour.src = 'img/four_black.svg';
+    
+                hotelThree.classList = '';
+                hotelFour.classList = '';
+              
+            }
+    
+        })
         
-        if (e.target.id === 'hotel_three') {
-            hotelThree.src = 'img/three.svg';
-            hotelFour.src = 'img/four_black.svg';
-            hotelFive.src = 'img/five_black.svg';
-
-        } else if (e.target.id === 'hotel_four') {
-            hotelFour.src = 'img/four.svg';
-            hotelThree.src = 'img/three_black.svg';
-            hotelFive.src = 'img/five_black.svg';
-        } else {
-            hotelFive.src = 'img/five.svg';
-            hotelFour.src = 'img/four_black.svg';
-            hotelThree.src = 'img/three_black.svg';
-        } 
-
-    })
-  
+    });
 
 }
 
 function preSet() {
 
     // 
+    
     let divDestino = document.querySelector('.travel__contenedor__cities');
     divDestino.childNodes[3].style.display = 'inline';
     divDestino.style.outline = '3px solid white'
@@ -390,14 +442,12 @@ function preSet() {
     hotelFive.src = 'img/five.svg';
 }
 
-//test();
-
 // Ejecicon de funciones
 
 window.onload = () => {
     createSectionCities();
     clearFromViajar();
-    validBock();
+    cotizar();
     preSet();
     selectHotel();
 };
