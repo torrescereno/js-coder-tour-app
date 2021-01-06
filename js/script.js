@@ -3,98 +3,6 @@
 // Variables globales
 const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
-/* CLASES */
-
-/* Usario */
-
-class User {
-
-    constructor(id = 1, name, email) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-    };
-
-    /* this.getName = function () {
-        return this.nombre;
-    };
-
-    this.setName = cambiarNombre; */
-};
-
-/* Ciudades */
-
-class Cities {
-
-    constructor(id, name, price, desciption, img) {
-        this.id = id;
-        this.name = name;
-        this.price = price;
-        this.desciption = desciption;
-        this.img = img;
-    };
-
-};
-
-/* Hoteles */
-
-class Hotel {
-
-    constructor(id, name, stars, price, desciption) {
-        this.id = id;
-        this.name = name;
-        this.stars = stars;
-        this.price = price;
-        this.desciption = desciption;
-    }
-}
-
-// --------------------------------------------------
-
-// Objetos base con arreglos [pendiente convertir en json]
-
-
-const cacun = new Cities(1, 'Cacun', 10000, 'Lorem ipsum dolor sit amet', 'img/beach.svg');
-const newYork = new Cities(2, 'New York', 20000, 'Lorem ipsum dolor sit amet', 'img/new-york.svg');
-const miami = new Cities(3, 'Miami', 30000, 'Lorem ipsum dolor sit amet', 'img/beach.svg');
-const paris = new Cities(4, 'Paris', 40000, 'Lorem ipsum dolor sit amet', 'img/paris.svg');
-const roma = new Cities(5, 'Roma', 50000, 'Lorem ipsum dolor sit amet', 'img/coliseum.svg');
-
-const arrCities = [
-    cacun,
-    newYork,
-    miami,
-    paris,
-    roma
-];
-
-const hotelCacun01 = new Hotel(1, '1 - Hotel Cancún', 4, 10000, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, dolorum?');
-const hotelCacun02 = new Hotel(2, '2 - Hotel Cancún', 5, 40000, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, dolorum?');
-const hotelNewYork01 = new Hotel(3, '1 - Hotel New York', 3, 5000, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, dolorum?');
-const hotelNewYork02 = new Hotel(4, '2 - Hotel New York', 5, 40000, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, dolorum?');
-const hotelMiami01 = new Hotel(5, '1 - Hotel Miami', 3, 5000, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, dolorum?');
-const hotelMiami02 = new Hotel(6, '2 - Hotel Miami', 5, 40000, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, dolorum?');
-const hotelParis01 = new Hotel(7, '1 - Hotel Paris', 4, 10000, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, dolorum?');
-const hotelParis02 = new Hotel(8, '2 - Hotel Paris', 5, 40000, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, dolorum?');
-const hotelRoma01 = new Hotel(9, '1 - Hotel Roma', 5, 40000, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, dolorum?');
-const hotelRoma02 = new Hotel(10, '2 - Hotel Roma', 2, 2500, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, dolorum?');
-
-
-const arrHoteles = [
-    [0, hotelCacun01],
-    [0, hotelCacun02],
-    [1, hotelNewYork01],
-    [1, hotelNewYork02],
-    [2, hotelMiami01],
-    [2, hotelMiami02],
-    [3, hotelParis01],
-    [3, hotelParis02],
-    [4, hotelRoma01],
-    [4, hotelRoma02]
-];
-
-// --------------------------------------------------
-
 
 /* Suscribe Newsletter */
 
@@ -109,7 +17,6 @@ function suscribeNewsLetter() {
     alert(`Gracias ${email} por susciribrse !`)
 
 }
-
 
 /**
  * Funcion de ejercicio para la creacion dinamica de elemntos y anidacion de nodos
@@ -139,49 +46,58 @@ function createSectionCities() {
     const nodeRowCities = document.createElement('div');
     nodeRowCities.classList.add('row', 'service__content', 'justify-content-center', 'mt-2', 'mt-lg-4');
 
-    for (let x = 0; x < arrCities.length; x++) {
-        // nodeDivCities 
-        const nodeDivCities = document.createElement('div');
-        nodeDivCities.classList.add('col-9', 'col-md-7', 'col-lg-3');
+    fetch('https://tour-app-34c02-default-rtdb.firebaseio.com/cities.json')
+        .then(response => response.json())
+        .then(data => {
+            for (const key in data) {
+                if (Object.hasOwnProperty.call(data, key)) {
 
-        // IMG
-        const imgCities = document.createElement('img');
-        imgCities.setAttribute('src', arrCities[x].img)
+                    const e = data[key];
 
-        // Title cities
-        const titleCities = document.createElement('h6');
-        titleCities.textContent = arrCities[x].name;
+                    // nodeDivCities 
+                    const nodeDivCities = document.createElement('div');
+                    nodeDivCities.classList.add('col-9', 'col-md-7', 'col-lg-3');
 
-        // Seccion span de botones
-        const spanCities = document.createElement('span');
-        spanCities.classList.add('d-xl-inline-flex', 'justify-content-between', 'w-50');
+                    // IMG
+                    const imgCities = document.createElement('img');
+                    imgCities.setAttribute('src', e.img)
 
-        // creacion de botones
-        const btnCotizar = document.createElement('button');
-        btnCotizar.classList.add('btn');
-        btnCotizar.setAttribute('onclick', "location.href='#travel'")
-        btnCotizar.textContent = 'Cotizar';
+                    // Title cities
+                    const titleCities = document.createElement('h6');
+                    titleCities.textContent = e.nombre;
+
+                    // Seccion span de botones
+                    const spanCities = document.createElement('span');
+                    spanCities.classList.add('d-xl-inline-flex', 'justify-content-between', 'w-50');
+
+                    // creacion de botones
+                    const btnCotizar = document.createElement('button');
+                    btnCotizar.classList.add('btn');
+                    btnCotizar.setAttribute('onclick', "location.href='#travel'")
+                    btnCotizar.textContent = 'Cotizar';
 
 
-        const btnDetalles = document.createElement('button');
-        btnDetalles.classList.add('btn');
-        btnDetalles.setAttribute('data-toggle', 'modal');
-        btnDetalles.setAttribute('data-target', '#serviceModal');
-        btnDetalles.textContent = 'Deatalles';
+                    const btnDetalles = document.createElement('button');
+                    btnDetalles.classList.add('btn');
+                    btnDetalles.setAttribute('data-toggle', 'modal');
+                    btnDetalles.setAttribute('data-target', '#serviceModal');
+                    btnDetalles.textContent = 'Deatalles';
 
 
-        // Union de nodos
-        nodeRowCities.appendChild(nodeDivCities);
+                    // Union de nodos
+                    nodeRowCities.appendChild(nodeDivCities);
 
-        nodeDivCities.appendChild(imgCities);
-        nodeDivCities.appendChild(titleCities);
-        nodeDivCities.appendChild(spanCities);
-        spanCities.appendChild(btnCotizar);
-        spanCities.appendChild(btnDetalles);
+                    nodeDivCities.appendChild(imgCities);
+                    nodeDivCities.appendChild(titleCities);
+                    nodeDivCities.appendChild(spanCities);
+                    spanCities.appendChild(btnCotizar);
+                    spanCities.appendChild(btnDetalles);
 
-        divService.appendChild(nodeRowCities);
-    }
+                    divService.appendChild(nodeRowCities);
 
+                }
+            }
+        });
 }
 
 function selectCitie(element) {
@@ -251,7 +167,7 @@ function cotizar() {
             let numPasajeros;
 
 
-            
+
 
             // Validar cantenido de los input
 
@@ -261,8 +177,8 @@ function cotizar() {
 
                     const nameInput = formInput.form[0].value.trim();
                     const email = formInput.form[1].value.trim();
-                    
-                    
+
+
                     // Validar email y que el nombre tenag contenido
 
                     if (nameInput !== '' && re.test(email)) {
@@ -272,7 +188,7 @@ function cotizar() {
                         localStorage.setItem("email", email)
 
                         existeinput = true;
-                    }else{
+                    } else {
                         alert('Debe ingresar el nombre y el email')
                     }
 
@@ -280,13 +196,13 @@ function cotizar() {
                 case 'tavelCities':
                     // Obtener citie
                     divDestino = document.querySelectorAll(".travel__contenedor__cities");
-                    
+
                     divDestino.forEach(element => {
 
                         if (element.lastElementChild.style.display === 'inline') {
                             destino = element.innerText;
                         }
-                        
+
                     });
 
                     // Alamcenar en storage
@@ -316,11 +232,11 @@ function cotizar() {
                         const divHotel = element.lastElementChild;
 
 
-                        if(divHotel.classList[0]){
+                        if (divHotel.classList[0]) {
 
                             if (divHotel.id === 'hotel_three') {
                                 stars = 3;
-                            }else if (divHotel.id === 'hotel_four') {
+                            } else if (divHotel.id === 'hotel_four') {
                                 stars = 4;
                             } else {
                                 stars = 5;
@@ -339,7 +255,7 @@ function cotizar() {
                     const spanNombre = document.querySelector("#resultNombre")
                     spanNombre.innerText = `Nombre: ${localStorage.getItem("nombre")}`;
 
-                    const spanDestino= document.querySelector("#resultDestino")
+                    const spanDestino = document.querySelector("#resultDestino")
                     spanDestino.innerText = `Destino: ${localStorage.getItem("destino")}`;
 
                     const spanPasajeros = document.querySelector("#resultPasajeros")
@@ -352,7 +268,7 @@ function cotizar() {
 
                 case 'travelResult':
 
-                    if(e.target.textContent === 'Volver a cotizar'){
+                    if (e.target.textContent === 'Volver a cotizar') {
                         clearFromViajar();
                     }
 
@@ -383,47 +299,47 @@ function selectHotel() {
     divFormHotel.forEach(element => {
 
         element.addEventListener('click', (e) => {
-            
+
             if (e.target.id === 'hotel_three') {
-    
+
                 hotelThree.src = 'img/three.svg';
                 hotelThree.classList = 'select';
-                
+
                 //
                 hotelFour.src = 'img/four_black.svg';
                 hotelFive.src = 'img/five_black.svg';
-    
+
                 hotelFour.classList = '';
                 hotelFive.classList = '';
-                
-    
-    
+
+
+
             } else if (e.target.id === 'hotel_four') {
                 hotelFour.src = 'img/four.svg';
                 hotelFour.classList = 'select';
-    
+
                 //
                 hotelThree.src = 'img/three_black.svg';
                 hotelFive.src = 'img/five_black.svg';
-    
+
                 hotelThree.classList = '';
                 hotelFive.classList = '';
-         
-            } else if(e.target.id === 'hotel_five') {
+
+            } else if (e.target.id === 'hotel_five') {
                 hotelFive.src = 'img/five.svg';
                 hotelFive.classList = 'select';
-    
+
                 // 
                 hotelThree.src = 'img/three_black.svg';
                 hotelFour.src = 'img/four_black.svg';
-    
+
                 hotelThree.classList = '';
                 hotelFour.classList = '';
-              
+
             }
-    
+
         })
-        
+
     });
 
 }
@@ -459,7 +375,7 @@ function scrollAppear() {
 function preSet() {
 
     // 
-    
+
     let divDestino = document.querySelector('.travel__contenedor__cities');
     divDestino.childNodes[3].style.display = 'inline';
     divDestino.style.outline = '3px solid white'
@@ -469,7 +385,6 @@ function preSet() {
     const hotelFive = document.querySelector("#hotel_five");
     hotelFive.src = 'img/five.svg';
 }
-
 
 
 // Ejecicon de funciones
@@ -482,7 +397,7 @@ window.onload = () => {
     cotizar();
     preSet();
     selectHotel();
-    
-    
+
+
 };
 
