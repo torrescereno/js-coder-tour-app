@@ -428,6 +428,34 @@ function selectHotel() {
 
 }
 
+// Animaciones
+
+function scrollAppear() {
+
+    const introText = document.querySelector('.intro__text');
+    const introForm = document.querySelector('.intro__form');
+    const introFormContact = document.querySelector('.intro__contact');
+
+    const introPositionText = introText.getBoundingClientRect().top;
+    const introPositionForm = introForm.getBoundingClientRect().top;
+    const introPositionFormContact = introFormContact.getBoundingClientRect().top;
+
+    const screenPosition = window.innerHeight / 2;
+
+    if (introPositionText < screenPosition) {
+        introText.classList.add('intro__appear');
+    }
+
+    if (introPositionForm < screenPosition) {
+        introForm.classList.add('intro__appear');
+    }
+
+    if (introPositionFormContact < screenPosition) {
+        introFormContact.classList.add('intro__appear');
+    }
+
+}
+
 function preSet() {
 
     // 
@@ -442,7 +470,11 @@ function preSet() {
     hotelFive.src = 'img/five.svg';
 }
 
+
+
 // Ejecicon de funciones
+
+window.addEventListener('scroll', scrollAppear);
 
 window.onload = () => {
     createSectionCities();
@@ -450,5 +482,7 @@ window.onload = () => {
     cotizar();
     preSet();
     selectHotel();
+    
+    
 };
 
