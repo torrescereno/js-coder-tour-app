@@ -72,12 +72,12 @@
 
         <div class="container-fluid" id="who">
             <div class="container-fluid">
-                <div class="row who__content justify-content-center align-items-center p-2 p-lg-5 m-auto">
+                <div class="row who__content justify-content-center align-items-center p-2 p-lg-5 m-auto intro__text">
                     <div class="col-12 col-lg-4 text-center who__content__icon">
                         <img src="img/travel.svg" alt="" />
                     </div>
 
-                    <div class="col-12 col-lg-4 who__content__text intro__text">
+                    <div class="col-12 col-lg-4 who__content__text ">
                         <h2>Nosotros</h2>
                         <p>
                             Queremos que disfrutes ofreciendote los mejores tours a los
@@ -185,7 +185,7 @@
                         </div>
 
                         <div class="col-10 col-md-4 travel__contenedor__cities" id='' onclick="selectCitie(this)">
-                            <span>Cancun</span>
+                            <span>Cancún</span>
                             <img src="img/avion.svg" alt="">
                         </div>
 
@@ -260,7 +260,7 @@
                             <a role="button" class="btn">Destalles</a>
                         </div>
                         <div class="col-12 col-md-5 text-center">
-                            <a role="button" class="btn form__btn__next">Siguiente</a>
+                            <a role="button" class="btn form__btn__return">Siguiente</a>
                         </div>
 
 
@@ -277,11 +277,21 @@
                         <div class="col-12 col-md-10 p-md-3" >
                             <span id="resultNombre"></span>
                         </div>
+
                         <div class="col-12 col-md-10 p-md-3" >
                             <span id="resultDestino"></span>
                         </div>
+
                         <div class="col-12 col-md-10 p-md-3" >
                             <span id="resultPasajeros"></span>
+                        </div>
+
+                        <div class="col-12 col-md-10 p-md-3" >
+                            <span id="precioHotel"></span>
+                        </div>
+
+                        <div class="col-12 col-md-10 p-md-3" >
+                            <span id="precioVuelo"></span>
                         </div>
 
                         <div class="col-12 col-md-10 p-md-3" >
@@ -289,7 +299,7 @@
                         </div>
 
                         <div class="col-12 col-md-5 text-center">
-                            <button type="reset" class="btn">Volver a cotizar</button>
+                            <button type="reset" class="btn form__btn__next">Volver a cotizar</button>
                         </div>
                         <div class="col-12 col-md-5 text-center">
                             <a class="btn">Fechas disponibles</a>
@@ -401,7 +411,7 @@
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>   
     <!-- JS -->
-    <script src="js/script.js"></script>
+    <script defer src="js/script.js"></script>
 </body>
 
 </html>

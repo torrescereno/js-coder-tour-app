@@ -3,21 +3,6 @@
 // Variables globales
 const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
-
-/* Suscribe Newsletter */
-
-function suscribeNewsLetter() {
-
-    const email = document.forms["newsForm"]["email"].value;
-
-    // Crear un usuario test
-    const user = new User(1, "suscriber", email);
-    console.log(user);
-
-    alert(`Gracias ${email} por susciribrse !`)
-
-}
-
 /**
  * Funcion de ejercicio para la creacion dinamica de elemntos y anidacion de nodos
  * Crea dinamicamente la seccion de ciudades disponibles, segun el arreglo de ciudades
@@ -44,8 +29,9 @@ function createSectionCities() {
 
     // Crar row de seccion de ciudades
     const nodeRowCities = document.createElement('div');
-    nodeRowCities.classList.add('row', 'service__content', 'justify-content-center', 'mt-2', 'mt-lg-4');
+    nodeRowCities.classList.add('row', 'service__content', 'justify-content-center', 'mt-3', 'mt-lg-4');
 
+    // llamar al endpoint de la tabla cities
     fetch('https://tour-app-34c02-default-rtdb.firebaseio.com/cities.json')
         .then(response => response.json())
         .then(data => {
@@ -134,6 +120,8 @@ function clearFromViajar() {
 
         divFromNode = document.querySelector(`#${divId}`)
 
+        localStorage.clear();
+
 
         if (i === 0) {
             divFromNode.style.display = 'flex';
@@ -153,9 +141,8 @@ function cotizar() {
 
     divFrom.addEventListener('click', (e) => {
 
-        //console.log(e);
 
-        if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') {
+        if (e.target.classList[1]=== 'form__btn__next' || e.target.classList[1]=== 'form__btn__return') {
 
             const divActual = e.target.parentElement.parentElement;
             const formInput = divActual.querySelector("input");
@@ -165,9 +152,6 @@ function cotizar() {
             let divDestino;
             let destino;
             let numPasajeros;
-
-
-
 
             // Validar cantenido de los input
 
@@ -184,7 +168,7 @@ function cotizar() {
                     if (nameInput !== '' && re.test(email)) {
 
                         // Almacenar en storage
-                        localStorage.setItem("nombre", nameInput);
+                        localStorage.setItem("nombre_pasajero", nameInput);
                         localStorage.setItem("email", email)
 
                         existeinput = true;
@@ -205,10 +189,32 @@ function cotizar() {
 
                     });
 
-                    // Alamcenar en storage
-                    localStorage.setItem("destino", destino);
+                    // Obtener el precio desde el endpoint
+                    fetch(`https://tour-app-34c02-default-rtdb.firebaseio.com/cities/.json`)
+                        .then(response => response.json())
+                        .then(data => {
+
+                            for (const key in data) {
+                                if (Object.hasOwnProperty.call(data, key)) {
+
+                                    const element = data[key];
+
+                                    if (element.nombre === destino) {
+
+                                        // Alamcenar en storage
+                                        localStorage.setItem("precio_destino", element.precio);
+                                        localStorage.setItem("destino", destino);
+                                        
+                                    }
+                                    
+                                }
+                            }
+
+                            
+                        })
 
                     existeinput = true;
+
                     break;
 
                 case 'travelPassengers':
@@ -225,7 +231,7 @@ function cotizar() {
                     // Obtener hotel
 
                     const divHotel = document.querySelectorAll(".travel__contenedor__hotel");
-                    let stars = 5;
+                    let id = 0;
 
                     divHotel.forEach(element => {
 
@@ -235,34 +241,32 @@ function cotizar() {
                         if (divHotel.classList[0]) {
 
                             if (divHotel.id === 'hotel_three') {
-                                stars = 3;
+                                id = 2;
                             } else if (divHotel.id === 'hotel_four') {
-                                stars = 4;
-                            } else {
-                                stars = 5;
+                                id = 1;
+                            }else{
+                                id = 0;
                             }
                         }
+
                     });
 
-                    // Alamcenar en storage
-                    localStorage.setItem("estrellas", stars);
+                    // Obtener datos del endpoint
 
+                    fetch(`https://tour-app-34c02-default-rtdb.firebaseio.com/hotels/${id}.json`)
+                        .then(response => response.json())
+                        .then(data => {
+
+                            // Alamcenar en storage
+                            localStorage.setItem("estrellas", data.n_estrellas);
+                            localStorage.setItem("nombre_hotel", data.nombre);
+                            localStorage.setItem("precio_hotel", data.precio);
+
+                            showResults();
+
+                        });
 
                     existeinput = true;
-
-                    // Mostrar resultados
-
-                    const spanNombre = document.querySelector("#resultNombre")
-                    spanNombre.innerText = `Nombre: ${localStorage.getItem("nombre")}`;
-
-                    const spanDestino = document.querySelector("#resultDestino")
-                    spanDestino.innerText = `Destino: ${localStorage.getItem("destino")}`;
-
-                    const spanPasajeros = document.querySelector("#resultPasajeros")
-                    spanPasajeros.innerText = `Cantidad de pasajeros: ${localStorage.getItem("pasajeros")}`;
-
-                    const spanTotal = document.querySelector("#resultTotal")
-                    spanTotal.innerText = `Total: `;
 
                     break;
 
@@ -284,9 +288,9 @@ function cotizar() {
         }
 
     });
-
-
 }
+
+
 
 function selectHotel() {
 
@@ -344,6 +348,18 @@ function selectHotel() {
 
 }
 
+function suscribeNewsLetter() {
+
+    const email = document.forms["newsForm"]["email"].value;
+
+    // Crear un usuario test
+    const user = new User(1, "suscriber", email);
+    console.log(user);
+
+    alert(`Gracias ${email} por susciribrse !`)
+
+}
+
 // Animaciones
 
 function scrollAppear() {
@@ -387,7 +403,39 @@ function preSet() {
 }
 
 
-// Ejecicon de funciones
+function showResults() {
+    // Mostrar resultados
+
+    const nombrePasjero = localStorage.getItem("nombre_pasajero");
+    const destinoSeleccionado = localStorage.getItem("destino");
+    const numeroPasajeros = localStorage.getItem("pasajeros");
+    const precioHotel = localStorage.getItem("precio_hotel");
+    const precioVuelo  = localStorage.getItem("precio_destino");
+
+
+
+    const spanNombre = document.querySelector("#resultNombre")
+    spanNombre.innerText = `Nombre: ${nombrePasjero}`;
+
+    const spanDestino = document.querySelector("#resultDestino")
+    spanDestino.innerText = `Destino: ${destinoSeleccionado}`;
+
+    const spanPasajeros = document.querySelector("#resultPasajeros")
+    spanPasajeros.innerText = `Cantidad de pasajeros: ${numeroPasajeros}`;
+
+    const spanPrecioHotel = document.querySelector("#precioHotel")
+    spanPrecioHotel.innerText = `Precio del hotel: ${precioHotel}`;
+
+    const spanPrecioVuelo = document.querySelector("#precioVuelo")
+    spanPrecioVuelo.innerText = `Precio del vuelo: ${precioVuelo}`;
+
+    const spanTotal = document.querySelector("#resultTotal")
+
+    const result = ( parseInt(precioVuelo) + parseInt(precioHotel)) * parseInt(numeroPasajeros);
+
+    spanTotal.innerText = `Total: ${result}`; 
+
+}
 
 window.addEventListener('scroll', scrollAppear);
 
