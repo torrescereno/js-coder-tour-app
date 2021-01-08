@@ -14,7 +14,6 @@ function createSectionCities() {
     // Div principal
     const divService = document.querySelector('#service');
 
-
     // Nodo del titulo
     const nodeTitle = document.createElement('div');
     nodeTitle.classList.add("row", "justify-content-center");
@@ -84,6 +83,7 @@ function createSectionCities() {
                 }
             }
         });
+    
 }
 
 function selectCitie(element) {
@@ -374,18 +374,9 @@ function scrollAppear() {
 
     const screenPosition = window.innerHeight / 2;
 
-    if (introPositionText < screenPosition) {
-        introText.classList.add('intro__appear');
-    }
-
-    if (introPositionForm < screenPosition) {
-        introForm.classList.add('intro__appear');
-    }
-
-    if (introPositionFormContact < screenPosition) {
-        introFormContact.classList.add('intro__appear');
-    }
-
+    introText.classList.toggle('intro__appear', introPositionText < screenPosition);
+    introForm.classList.toggle('intro__appear', introPositionForm < screenPosition);
+    introFormContact.classList.toggle('intro__appear', introPositionFormContact < screenPosition);
 }
 
 function preSet() {
@@ -438,6 +429,13 @@ function showResults() {
 }
 
 window.addEventListener('scroll', scrollAppear);
+
+window.addEventListener('scroll', () => {
+    const diivNavBar = document.querySelector('.navBar'); 
+    diivNavBar.classList.toggle("navScroll", window.scrollY > 0);
+});
+
+
 
 window.onload = () => {
     createSectionCities();

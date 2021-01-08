@@ -3,10 +3,16 @@
     background: transparent;
     font-family: "Capriola", sans-serif;
     position: fixed;
+    top: 0;
+    left: 0;
     font-size: 14px;
     height: 50px;
     width: 100%;
     z-index: 1;
+}
+
+.navScroll{
+  // Agregar un diseño para el nav  
 }
 
 .navBar__content__link {

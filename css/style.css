@@ -12,8 +12,7 @@ a:hover {
   color: #ffffff; }
 
 body {
-  color: #ffffff;
-  background-color: #3fb0ac; }
+  color: #ffffff; }
 
 /* body::-webkit-scrollbar{
     width: 10px;
@@ -50,6 +49,8 @@ body::-webkit-scrollbar-thumb{
   background: transparent;
   font-family: "Capriola", sans-serif;
   position: fixed;
+  top: 0;
+  left: 0;
   font-size: 14px;
   height: 50px;
   width: 100%;
@@ -84,7 +85,7 @@ body::-webkit-scrollbar-thumb{
     left: 0px;
     z-index: -99;
     background: black;
-    opacity: 0.4; }
+    opacity: 0.5; }
   .banner video {
     position: absolute;
     top: 0;
@@ -127,11 +128,12 @@ body::-webkit-scrollbar-thumb{
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center; */ }
+    justify-content: center; */
+  background-color: #C3ADA5; }
 
 .who__content .who__content__icon img {
   max-width: 100%;
-  max-height: 440px; }
+  max-height: 320px; }
 
 .who__content .who__content__text h2 {
   font-size: 42px;
@@ -141,11 +143,12 @@ body::-webkit-scrollbar-thumb{
   font-size: 20px; }
 
 #service {
-  /* min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center; */ }
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background-color: #EDC677; }
 
 .service__content div {
   margin: 10px;
@@ -192,7 +195,8 @@ body::-webkit-scrollbar-thumb{
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center; }
+  justify-content: center;
+  background-color: #7AB8B8; }
 
 .travel__title {
   padding-top: 50px; }
@@ -316,6 +320,9 @@ body::-webkit-scrollbar-thumb{
     display: none; }
   .travel__form .travel__form__result {
     display: none; }
+
+#contact {
+  background-color: #6AAEBF; }
 
 .contact__form {
   box-shadow: -10px 25px 50px rgba(0, 0, 0, 0.3); }
