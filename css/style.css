@@ -12,7 +12,8 @@ a:hover {
   color: #ffffff; }
 
 body {
-  color: #ffffff; }
+  color: #ffffff;
+  background-color: #edc677; }
 
 /* body::-webkit-scrollbar{
     width: 10px;
@@ -170,7 +171,7 @@ body::-webkit-scrollbar-thumb{
       border: 2px solid white; }
     .service__content div span button:hover {
       background-color: white;
-      color: #6aaebf; }
+      color: #edc677; }
 
 .service__content div:hover {
   box-shadow: -10px 25px 50px rgba(0, 0, 0, 0.3);
@@ -190,6 +191,15 @@ body::-webkit-scrollbar-thumb{
     transform: rotate(3deg); }
   100% {
     transform: rotate(0); } }
+
+.not-active {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.5; }
+
+.active {
+  opacity: 1;
+  pointer-events: none; }
 
 #travel {
   min-height: 100vh;
@@ -278,6 +288,8 @@ body::-webkit-scrollbar-thumb{
     color: white;
     border-radius: 0;
     margin-top: 20px; }
+  .travel__form div div a:hover {
+    color: white; }
   .travel__form div div button:hover {
     color: white; }
   .travel__form div div button {

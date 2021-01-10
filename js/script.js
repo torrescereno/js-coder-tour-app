@@ -3,11 +3,9 @@
 // Variables globales
 const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
-/**
- * Funcion de ejercicio para la creacion dinamica de elemntos y anidacion de nodos
- * Crea dinamicamente la seccion de ciudades disponibles, segun el arreglo de ciudades
- * @param 
- */
+const divInputEmail = document.querySelector("#input__email");
+const divInputName = document.querySelector("#input__name");
+
 
 function createSectionCities() {
 
@@ -51,9 +49,12 @@ function createSectionCities() {
                     const titleCities = document.createElement('h6');
                     titleCities.textContent = e.nombre;
 
+                    const divCities = document.createElement('span');
+                    divCities.classList.add('row','justify-content-center')
+
                     // Seccion span de botones
                     const spanCities = document.createElement('span');
-                    spanCities.classList.add('d-xl-inline-flex', 'justify-content-between', 'w-50');
+                    spanCities.classList.add('col-12');
 
                     // creacion de botones
                     const btnCotizar = document.createElement('button');
@@ -74,7 +75,8 @@ function createSectionCities() {
 
                     nodeDivCities.appendChild(imgCities);
                     nodeDivCities.appendChild(titleCities);
-                    nodeDivCities.appendChild(spanCities);
+                    nodeDivCities.appendChild(divCities);
+                    divCities.appendChild(spanCities);
                     spanCities.appendChild(btnCotizar);
                     spanCities.appendChild(btnDetalles);
 
@@ -87,7 +89,6 @@ function createSectionCities() {
 }
 
 function selectCitie(element) {
-
 
     let imgStyle = element.childNodes[3].style
     let divStyle = element.style;
@@ -102,7 +103,6 @@ function selectCitie(element) {
 
     imgStyle.display = 'inline'
     divStyle.outline = '3px solid white'
-
 
 }
 
@@ -131,13 +131,16 @@ function clearFromViajar() {
 
     }
 
+    // Limpiar clases de los input del form
+
+    divInputEmail.classList.toggle('is-valid');
+    divInputName.classList.toggle('is-valid');
+
 }
 
 function cotizar() {
 
-
     const divFrom = document.querySelector(".travel__form");
-
 
     divFrom.addEventListener('click', (e) => {
 
@@ -172,8 +175,6 @@ function cotizar() {
                         localStorage.setItem("email", email)
 
                         existeinput = true;
-                    } else {
-                        alert('Debe ingresar el nombre y el email')
                     }
 
                     break;
@@ -210,7 +211,6 @@ function cotizar() {
                                 }
                             }
 
-                            
                         })
 
                     existeinput = true;
@@ -221,10 +221,15 @@ function cotizar() {
                     // Obtner numero de pasajeros
                     numPasajeros = formInput.form[2].value.trim();
 
-                    // Alamcenar en storage
-                    localStorage.setItem("pasajeros", numPasajeros);
+                    if (numPasajeros !== '' && numPasajeros > 0) {
 
-                    existeinput = true;
+                        // Alamcenar en storage
+                        localStorage.setItem("pasajeros", numPasajeros);
+
+                        existeinput = true;
+                    }
+
+                    
                     break;
 
                 case 'travelHotel':
@@ -284,13 +289,10 @@ function cotizar() {
                 divSiguiente.style.display = 'flex'
             }
 
-
         }
 
     });
 }
-
-
 
 function selectHotel() {
 
@@ -360,8 +362,6 @@ function suscribeNewsLetter() {
 
 }
 
-// Animaciones
-
 function scrollAppear() {
 
     const introText = document.querySelector('.intro__text');
@@ -391,8 +391,18 @@ function preSet() {
 
     const hotelFive = document.querySelector("#hotel_five");
     hotelFive.src = 'img/five.svg';
-}
 
+    //
+
+    /* const divArrows = document.querySelector('.travel__arrows__content');
+    divArrows.children[0].children[0].classList.toggle('active') */
+
+
+     // Limpiar clases de los input del form
+     divInputEmail.classList.toggle('is-valid');
+     divInputName.classList.toggle('is-valid');
+
+}
 
 function showResults() {
     // Mostrar resultados
@@ -402,8 +412,6 @@ function showResults() {
     const numeroPasajeros = localStorage.getItem("pasajeros");
     const precioHotel = localStorage.getItem("precio_hotel");
     const precioVuelo  = localStorage.getItem("precio_destino");
-
-
 
     const spanNombre = document.querySelector("#resultNombre")
     spanNombre.innerText = `Nombre: ${nombrePasjero}`;
@@ -428,6 +436,20 @@ function showResults() {
 
 }
 
+divInputName.addEventListener('input', (e) =>{
+
+    const classInputName = divInputName.classList;
+
+    !!e.target.value ? classInputName.contains('is-invalid') ? classInputName.replace('is-invalid', 'is-valid') : classInputName.add('is-valid') : classInputName.add('is-invalid'); 
+})
+
+divInputEmail.addEventListener('input', (e) =>{
+
+    const classInputEmail = divInputEmail.classList;
+
+    re.test(e.target.value) ? classInputEmail.contains('is-invalid') ? classInputEmail.replace('is-invalid', 'is-valid') : classInputEmail.add('is-valid') : classInputEmail.add('is-invalid'); 
+})
+
 window.addEventListener('scroll', scrollAppear);
 
 window.addEventListener('scroll', () => {
@@ -435,15 +457,11 @@ window.addEventListener('scroll', () => {
     diivNavBar.classList.toggle("navScroll", window.scrollY > 0);
 });
 
-
-
 window.onload = () => {
     createSectionCities();
     clearFromViajar();
     cotizar();
     preSet();
     selectHotel();
-
-
 };
 

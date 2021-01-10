@@ -1,4 +1,16 @@
 
+.not-active {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.5;
+}
+
+.active{
+    opacity: 1;
+    pointer-events: none;
+}
+
+
 #travel{
     min-height: 100vh;
     display: flex;
@@ -6,7 +18,6 @@
     justify-content: center;
     background-color: #7AB8B8;
 }
-
 
 
 .travel__title{
@@ -113,6 +124,10 @@
                 color: white;
                 border-radius: 0;
                 margin-top: 20px;
+            }
+
+            a:hover{
+                color: white;
             }
 
             button:hover{

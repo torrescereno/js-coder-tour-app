@@ -22,8 +22,6 @@
 <body>
     <main>
         <!-- NAV -->
-        <!--  / STICKY 
-              / SCROLL-REDIRECCION A LA SECCION SELECIONADA -->
 
         <nav class="navBar navbar navbar-expand-lg justify-content-end">
             <!-- LOGO PENDING -->
@@ -43,8 +41,6 @@
         </nav>
 
         <!-- BANNER HOMMER -->
-        <!-- / IMAGEN
-                / BREVE DESCRIPCION -->
 
         <div class="banner container-fluid">
             <div class="banner__overlay"></div>
@@ -67,8 +63,6 @@
         </div>
 
         <!-- QUIEN SOMOS  -->
-        <!-- / COMPROMISO
-             / HISTORIA -->
 
         <div class="container-fluid " id="who">
             <div class="container-fluid">
@@ -102,7 +96,7 @@
 
         <!-- SERVICIOS / DESTINOS DISPONIBLES -->
 
-        <div class="container-fluid text-center pt-5 pb-lg-5" id="service">
+        <div class="container-fluid text-center pt-5 pb-lg-5 w-100" id="service">
             <!-- DETALLES DE LOS DESTINOS MODAL -->
 
             <div class="modal fade text-dark" id="serviceModal" tabindex="-1" role="dialog"
@@ -135,193 +129,177 @@
                 <div class="travel__title row justify-content-center">
                     <h2>Viajar</h2>
                 </div>
-    
+
                 <div class="travel__arrows row justify-content-center align-content-center">
                     <div class="col-12">
                         <ol class="travel__arrows__content d-none d-md-block">
-                            <li><a href="">Datos</a></li>
-                            <li><a href="">Destino</a></li>
-                            <li><a href="">Cuantos</a> van</li>
-                            <li><a href="">Hotel</a></li>
-                            <li><a href="">Cotización</a></li>
+                            <li><a class="active" href="#">Datos</a></li>
+                            <li><a class="active" href="#">Destino</a></li>
+                            <li><a class="active" href="#">Cuantos van</a></li>
+                            <li><a class="active" href="#">Hotel</a></li>
+                            <li><a class="active" href="#">Cotización</a></li>
                         </ol>
                     </div>
                 </div>
-    
+
                 <!-- Fila del formulario de viajes -->
                 <div class="row justify-content-center align-content-center">
-    
+
                     <!-- Form dinamino -->
                     <form class="travel__form col-10 col-lg-6 mt-md-3">
-    
-    
+
+
                         <!-- DATOS FORM -->
                         <div class="row travel__form__datos justify-content-center align-content-center p-1"
                             id="tavelDatos">
                             <div class="col-12 p-md-3 pb-3 text-center">
                                 <p>Por favor ingresa tus datos</p>
                             </div>
-    
+
                             <div class="col-12 col-md-5 p-md-3">
                                 <label for="" class="form-label">Nombre:</label>
-                                <input type="text" class="form-control" id="" required />
+                                <input type="text" class="form-control" id="input__name" required />
                             </div>
-    
+
                             <div class="col-12 col-md-5 p-md-3">
                                 <label for="" class="form-label">Email:</label>
-                                <input type="email" class="form-control" id="" required />
+                                <input type="email" class="form-control" id="input__email" required />
                             </div>
-    
+
                             <div class="col-12 col-md-10 text-center">
                                 <a role="button" class="btn form__btn__next">Siguiente</a>
                             </div>
-    
+
                         </div>
-    
+
                         <!-- DESTINO FORM -->
-    
+
                         <div class="row travel__form__cities justify-content-center align-content-center p-1"
                             id="tavelCities">
                             <div class="col-12 p-md-3 pb-3 text-center">
                                 <p>Seleccione la ciudad de destino</p>
                             </div>
-    
+
                             <div class="col-10 col-md-4 travel__contenedor__cities" id='' onclick="selectCitie(this)">
                                 <span>Cancún</span>
                                 <img src="img/avion.svg" alt="">
                             </div>
-    
+
                             <div class="col-10 col-md-4 travel__contenedor__cities" id='' onclick="selectCitie(this)">
                                 <span>New York</span>
                                 <img src="img/avion.svg" alt="">
                             </div>
-    
+
                             <div class="col-10 col-md-4 travel__contenedor__cities" id='' onclick="selectCitie(this)">
                                 <span>Miami</span>
                                 <img src="img/avion.svg" alt="">
                             </div>
-    
+
                             <div class="col-10 col-md-4 travel__contenedor__cities" id='' onclick="selectCitie(this)">
                                 <span>Paris</span>
                                 <img src="img/avion.svg" alt="">
                             </div>
-    
+
                             <div class="col-10 col-md-4 travel__contenedor__cities" id='' onclick="selectCitie(this)">
                                 <span>Roma</span>
                                 <img src="img/avion.svg" alt="">
                             </div>
-    
+
                             <div class="col-12 col-md-10 text-center">
                                 <a role="button" class="btn form__btn__next">Siguiente</a>
                             </div>
-    
+
                         </div>
-    
+
                         <!-- CUANTOS SON FORM -->
-    
+
                         <div class="row travel__form__people justify-content-center align-content-center p-1"
                             id="travelPassengers">
                             <div class="col-12 p-md-3 pb-3 text-center">
                                 <p>Cuantos van a viajar ?</p>
                             </div>
-    
+
                             <div class="col-12 col-md-10 p-md-3">
                                 <label for="" class="form-label">Numero de pasajeros:</label>
-                                <input type="number" min="1" max="100" maxlength="3" value="1" class="form-control" id="" />
+                                <input type="number" min="1" max="100" maxlength="3" value="1" class="form-control"
+                                    id="" required />
                             </div>
-    
-    
+
+
                             <div class="col-12 col-md-10 text-center">
                                 <a role="button" class="btn form__btn__next">Siguiente</a>
                             </div>
-    
+
                         </div>
-    
+
                         <!-- SELECT HOTEL STARS -->
-    
+
                         <div class="row travel__form__hotel justify-content-center align-content-center p-1"
                             id="travelHotel">
                             <div class="col-12 p-md-3 pb-3 text-center">
                                 <p>Selecione las estrellas del hotel</p>
                             </div>
-    
+
                             <div class="col-10 col-md-3 travel__contenedor__hotel">
                                 <img src="img/three_black.svg" id='hotel_three' alt="">
                             </div>
-    
+
                             <div class="col-10 col-md-3 travel__contenedor__hotel">
                                 <img src="img/four_black.svg" id='hotel_four' alt="">
                             </div>
-    
+
                             <div class="col-10 col-md-3 travel__contenedor__hotel">
                                 <img src="img/five_black.svg" id='hotel_five' alt="" class="select">
                             </div>
-    
-    
+
+
                             <div class="col-12 col-md-5 text-center">
                                 <a role="button" class="btn">Destalles</a>
                             </div>
                             <div class="col-12 col-md-5 text-center">
                                 <a role="button" class="btn form__btn__return">Siguiente</a>
                             </div>
-    
-    
+
+
                         </div>
-    
+
                         <!-- CUANTOS SON FORM -->
-    
+
                         <div class="row travel__form__result justify-content-center align-content-center p-1"
                             id="travelResult">
                             <div class="col-12 p-md-3 pb-3 text-center">
                                 <p>Resultado de la cotizacion</p>
                             </div>
-    
-                            <div class="col-12 col-md-10 p-md-3" >
-                                <span id="resultNombre"></span>
-                            </div>
-    
-                            <div class="col-12 col-md-10 p-md-3" >
-                                <span id="resultDestino"></span>
-                            </div>
-    
-                            <div class="col-12 col-md-10 p-md-3" >
-                                <span id="resultPasajeros"></span>
-                            </div>
-    
-                            <div class="col-12 col-md-10 p-md-3" >
-                                <span id="precioHotel"></span>
-                            </div>
-    
-                            <div class="col-12 col-md-10 p-md-3" >
-                                <span id="precioVuelo"></span>
-                            </div>
-    
-                            <div class="col-12 col-md-10 p-md-3" >
-                                <span id="resultTotal"></span>
-                            </div>
-    
+
+                            <span class="col-10 p-md-1" id="resultNombre"></span>
+
+                            <span class="col-10 p-md-1" id="resultDestino"></span>
+
+                            <span class="col-10 p-md-1" id="resultPasajeros"></span>
+
+                            <span class="col-10 p-md-1" id="precioHotel"></span>
+
+                            <span class="col-10 p-md-1" id="precioVuelo"></span>
+
+                            <span class="col-10 p-md-1" id="resultTotal"></span>
+
                             <div class="col-12 col-md-5 text-center">
                                 <button type="reset" class="btn form__btn__next">Volver a cotizar</button>
                             </div>
                             <div class="col-12 col-md-5 text-center">
                                 <a class="btn">Fechas disponibles</a>
                             </div>
-    
+
                         </div>
-    
+
                     </form>
-                </div>    
+                </div>
 
             </div>
 
         </div>
 
         <!-- CONTACTO -->
-        <!-- / NOMBRE
-            / APELLIDO
-            / EMAIL
-            / TELEFONO
-            / MENSAJE -->
 
         <div class="container-fluid" id="contact">
             <div class="row justify-content-center pt-5 pb-5 intro__contact">
@@ -353,8 +331,6 @@
     </main>
 
     <!-- FOOTER -->
-    <!-- / RRSS 
-         / TERMINOS Y CONDICONES -->
 
     <div class="container-fluid footer">
         <div class="footer__content row justify-content-center">
@@ -413,7 +389,7 @@
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-        crossorigin="anonymous"></script>   
+        crossorigin="anonymous"></script>
     <!-- JS -->
     <script defer src="js/script.js"></script>
 </body>
