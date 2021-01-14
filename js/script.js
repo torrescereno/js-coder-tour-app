@@ -7,6 +7,9 @@ const divInputEmail = document.querySelector("#input__email");
 const divInputName = document.querySelector("#input__name");
 
 
+// Funcion que crea dinamicamente la seccion de DESTINOS
+// Obtiene los datos desde Firebase
+
 function createSectionCities() {
 
     // Div principal
@@ -88,6 +91,8 @@ function createSectionCities() {
     
 }
 
+// Funcion que selecciona la ciudad de destino, habilitando una imagen al nombre de la ciudad
+
 function selectCitie(element) {
 
     let imgStyle = element.childNodes[3].style
@@ -105,6 +110,8 @@ function selectCitie(element) {
     divStyle.outline = '3px solid white'
 
 }
+
+// 
 
 function clearFromViajar() {
 
@@ -137,6 +144,9 @@ function clearFromViajar() {
     divInputName.classList.toggle('is-valid');
 
 }
+
+// Funcion que permite validar el contenido del formulario de cotizacion
+// ademas va almacenando los valores del fprmulario en el localStorage
 
 function cotizar() {
 
@@ -294,6 +304,9 @@ function cotizar() {
     });
 }
 
+// Funcio que permite seleccionar la cantidad de estrellas
+// Dinamicamente selecciona y deshabilita las imagenes
+
 function selectHotel() {
 
     const divFormHotel = document.querySelectorAll(".travel__contenedor__hotel");
@@ -311,7 +324,6 @@ function selectHotel() {
                 hotelThree.src = 'img/three.svg';
                 hotelThree.classList = 'select';
 
-                //
                 hotelFour.src = 'img/four_black.svg';
                 hotelFive.src = 'img/five_black.svg';
 
@@ -324,7 +336,6 @@ function selectHotel() {
                 hotelFour.src = 'img/four.svg';
                 hotelFour.classList = 'select';
 
-                //
                 hotelThree.src = 'img/three_black.svg';
                 hotelFive.src = 'img/five_black.svg';
 
@@ -335,7 +346,6 @@ function selectHotel() {
                 hotelFive.src = 'img/five.svg';
                 hotelFive.classList = 'select';
 
-                // 
                 hotelThree.src = 'img/three_black.svg';
                 hotelFour.src = 'img/four_black.svg';
 
@@ -350,6 +360,8 @@ function selectHotel() {
 
 }
 
+// Funcion que realiza la suscripcion con un formulario dentro del footer
+
 function suscribeNewsLetter() {
 
     const email = document.forms["newsForm"]["email"].value;
@@ -361,6 +373,8 @@ function suscribeNewsLetter() {
     alert(`Gracias ${email} por susciribrse !`)
 
 }
+
+// Funcion de animacion al realizar scroll en la pagina
 
 function scrollAppear() {
 
@@ -378,6 +392,8 @@ function scrollAppear() {
     introForm.classList.toggle('intro__appear', introPositionForm < screenPosition);
     introFormContact.classList.toggle('intro__appear', introPositionFormContact < screenPosition);
 }
+
+// Funcion que setea los valores por defecto de la web 
 
 function preSet() {
 
@@ -404,7 +420,10 @@ function preSet() {
 
 }
 
+// Extrae todo el contenido del localstorage y realiza el calculo de la cotizacion
+
 function showResults() {
+
     // Mostrar resultados
 
     const nombrePasjero = localStorage.getItem("nombre_pasajero");
@@ -436,6 +455,12 @@ function showResults() {
 
 }
 
+/* 
+    Funciones listener del formulario de cotizacion
+    que validan de manera dinamica los input
+    y agregan o quita la clase is-invalid y is-valid
+*/
+
 divInputName.addEventListener('input', (e) =>{
 
     const classInputName = divInputName.classList;
@@ -449,6 +474,10 @@ divInputEmail.addEventListener('input', (e) =>{
 
     re.test(e.target.value) ? classInputEmail.contains('is-invalid') ? classInputEmail.replace('is-invalid', 'is-valid') : classInputEmail.add('is-valid') : classInputEmail.add('is-invalid'); 
 })
+
+/* 
+    
+*/
 
 window.addEventListener('scroll', scrollAppear);
 
@@ -464,4 +493,3 @@ window.onload = () => {
     preSet();
     selectHotel();
 };
-
