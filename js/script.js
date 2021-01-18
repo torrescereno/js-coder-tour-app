@@ -475,16 +475,39 @@ divInputEmail.addEventListener('input', (e) =>{
     re.test(e.target.value) ? classInputEmail.contains('is-invalid') ? classInputEmail.replace('is-invalid', 'is-valid') : classInputEmail.add('is-valid') : classInputEmail.add('is-invalid'); 
 })
 
+
 /* 
-    
+  JQUERY  
 */
 
-window.addEventListener('scroll', scrollAppear);
+// Ocultar menu con bootstrap cuando se realiza click en una categoria
 
-window.addEventListener('scroll', () => {
-    const diivNavBar = document.querySelector('.navBar'); 
-    diivNavBar.classList.toggle("navScroll", window.scrollY > 0);
+$(".nav-link" ).click(function() {
+    $('.navbar-collapse').collapse('hide');
 });
+
+// Windows scroll navBar
+$(window).scroll(function() {
+
+    const divNav = $('.navBar')[0];
+
+    if($( window ).width() > 975 ){
+        divNav.classList.toggle('navScroll', window.scrollY > 0);
+    }else{
+        divNav.classList.toggle('navScroll', window.scrollY < 0);
+    };
+
+});
+
+// Windows scroll 
+$(window).scroll(scrollAppear);
+
+
+/* 
+$(function() {
+    console.log($("#who"));
+});
+ */
 
 window.onload = () => {
     createSectionCities();

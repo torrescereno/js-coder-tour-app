@@ -2,7 +2,8 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth; }
+  scroll-behavior: smooth;
+  scrollbar-width: none; }
 
 a {
   color: #ffffff;
@@ -15,6 +16,9 @@ body {
   color: #ffffff;
   background-color: #edc677; }
 
+::-webkit-scrollbar {
+  display: none; }
+
 /* body::-webkit-scrollbar{
     width: 10px;
     background-color: transparent;
@@ -25,9 +29,6 @@ body::-webkit-scrollbar-thumb{
     border-radius: 2px;
 }
  */
-::-webkit-scrollbar {
-  display: none; }
-
 @media (min-width: 1025px) {
   /* Home */
   .banner .container-fluid {
@@ -56,6 +57,10 @@ body::-webkit-scrollbar-thumb{
   height: 50px;
   width: 100%;
   z-index: 1; }
+
+.navScroll {
+  background-color: black;
+  transition: 0.4s; }
 
 .navBar__btn__custom .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><path stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/></svg>"); }
@@ -100,8 +105,7 @@ body::-webkit-scrollbar-thumb{
     z-index: -100; }
   .banner .banner__content {
     position: relative;
-    text-align: center;
-    z-index: 3; }
+    text-align: center; }
     .banner .banner__content div h1 {
       font-size: 10vw; }
     .banner .banner__content div p {

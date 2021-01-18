@@ -3,6 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    scrollbar-width: none;
 }
 
 a{
@@ -20,6 +21,9 @@ body{
 
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
 
 /* body::-webkit-scrollbar{
     width: 10px;
@@ -32,7 +36,4 @@ body::-webkit-scrollbar-thumb{
 }
  */
 
-::-webkit-scrollbar {
-    display: none;
-}
 
