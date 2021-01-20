@@ -31,64 +31,71 @@ function createSectionCities() {
     const nodeRowCities = document.createElement('div');
     nodeRowCities.classList.add('row', 'service__content', 'justify-content-center', 'mt-3', 'mt-lg-4');
 
-    // llamar al endpoint de la tabla cities
-    fetch('https://tour-app-34c02-default-rtdb.firebaseio.com/cities.json')
-        .then(response => response.json())
-        .then(data => {
-            for (const key in data) {
-                if (Object.hasOwnProperty.call(data, key)) {
-
-                    const e = data[key];
-
-                    // nodeDivCities 
-                    const nodeDivCities = document.createElement('div');
-                    nodeDivCities.classList.add('col-9', 'col-md-7', 'col-lg-3');
-
-                    // IMG
-                    const imgCities = document.createElement('img');
-                    imgCities.setAttribute('src', e.img)
-
-                    // Title cities
-                    const titleCities = document.createElement('h6');
-                    titleCities.textContent = e.nombre;
-
-                    const divCities = document.createElement('span');
-                    divCities.classList.add('row','justify-content-center')
-
-                    // Seccion span de botones
-                    const spanCities = document.createElement('span');
-                    spanCities.classList.add('col-12');
-
-                    // creacion de botones
-                    const btnCotizar = document.createElement('button');
-                    btnCotizar.classList.add('btn');
-                    btnCotizar.setAttribute('onclick', "location.href='#travel'")
-                    btnCotizar.textContent = 'Cotizar';
-
-
-                    const btnDetalles = document.createElement('button');
-                    btnDetalles.classList.add('btn');
-                    btnDetalles.setAttribute('data-toggle', 'modal');
-                    btnDetalles.setAttribute('data-target', '#serviceModal');
-                    btnDetalles.textContent = 'Deatalles';
-
-
-                    // Union de nodos
-                    nodeRowCities.appendChild(nodeDivCities);
-
-                    nodeDivCities.appendChild(imgCities);
-                    nodeDivCities.appendChild(titleCities);
-                    nodeDivCities.appendChild(divCities);
-                    divCities.appendChild(spanCities);
-                    spanCities.appendChild(btnCotizar);
-                    spanCities.appendChild(btnDetalles);
-
-                    divService.appendChild(nodeRowCities);
-
+        // AJAX - llamar al endpoint de la tabla cities
+        $.ajax({
+            url: 'https://tour-app-34c02-default-rtdb.firebaseio.com/cities.json',
+            success: function (data) {
+                for (const key in data) {
+                    if (Object.hasOwnProperty.call(data, key)) {
+    
+                        const e = data[key];
+    
+                        // nodeDivCities 
+                        const nodeDivCities = document.createElement('div');
+                        nodeDivCities.classList.add('col-9', 'col-md-7', 'col-lg-3');
+    
+                        // IMG
+                        const imgCities = document.createElement('img');
+                        imgCities.setAttribute('src', e.img)
+    
+                        // Title cities
+                        const titleCities = document.createElement('h6');
+                        titleCities.textContent = e.nombre;
+    
+                        const divCities = document.createElement('span');
+                        divCities.classList.add('row','justify-content-center')
+    
+                        // Seccion span de botones
+                        const spanCities = document.createElement('span');
+                        spanCities.classList.add('col-12');
+    
+                        // creacion de botones
+                        const btnCotizar = document.createElement('button');
+                        btnCotizar.classList.add('btn');
+                        btnCotizar.setAttribute('onclick', "location.href='#travel'")
+                        btnCotizar.textContent = 'Cotizar';
+    
+    
+                        const btnDetalles = document.createElement('button');
+                        btnDetalles.classList.add('btn');
+                        btnDetalles.setAttribute('data-toggle', 'modal');
+                        btnDetalles.setAttribute('data-target', '#serviceModal');
+                        btnDetalles.textContent = 'Deatalles';
+    
+    
+                        // Union de nodos
+                        nodeRowCities.appendChild(nodeDivCities);
+    
+                        nodeDivCities.appendChild(imgCities);
+                        nodeDivCities.appendChild(titleCities);
+                        nodeDivCities.appendChild(divCities);
+                        divCities.appendChild(spanCities);
+                        spanCities.appendChild(btnCotizar);
+                        spanCities.appendChild(btnDetalles);
+    
+                        divService.appendChild(nodeRowCities);
+    
+                    }
                 }
             }
-        });
-    
+        })
+
+    // fetch - llamar al endpoint de la tabla cities
+    /* fetch('https://tour-app-34c02-default-rtdb.firebaseio.com/cities.json')
+        .then(response => response.json())
+        .then(data => {
+            
+        }); */
 }
 
 // Funcion que selecciona la ciudad de destino, habilitando una imagen al nombre de la ciudad
@@ -200,11 +207,10 @@ function cotizar() {
 
                     });
 
-                    // Obtener el precio desde el endpoint
-                    fetch(`https://tour-app-34c02-default-rtdb.firebaseio.com/cities/.json`)
-                        .then(response => response.json())
-                        .then(data => {
-
+                    // AJAX - Obtener el precio desde el endpoint
+                    $.ajax({
+                        url: 'https://tour-app-34c02-default-rtdb.firebaseio.com/cities/.json',
+                        success: function (data) {
                             for (const key in data) {
                                 if (Object.hasOwnProperty.call(data, key)) {
 
@@ -220,8 +226,16 @@ function cotizar() {
                                     
                                 }
                             }
+                        }
+                    })
 
-                        })
+                    // fetch - Obtener el precio desde el endpoint
+
+                    /* fetch(`https://tour-app-34c02-default-rtdb.firebaseio.com/cities/.json`)
+                        .then(response => response.json())
+                        .then(data => {
+
+                        }) */
 
                     existeinput = true;
 
@@ -266,20 +280,26 @@ function cotizar() {
 
                     });
 
-                    // Obtener datos del endpoint
-
-                    fetch(`https://tour-app-34c02-default-rtdb.firebaseio.com/hotels/${id}.json`)
-                        .then(response => response.json())
-                        .then(data => {
-
+                    // AJAX - Obtener datos del endpoint
+                    $.ajax({
+                        url: `https://tour-app-34c02-default-rtdb.firebaseio.com/hotels/${id}.json`,
+                        success: function (data) {
                             // Alamcenar en storage
                             localStorage.setItem("estrellas", data.n_estrellas);
                             localStorage.setItem("nombre_hotel", data.nombre);
                             localStorage.setItem("precio_hotel", data.precio);
 
                             showResults();
+                        }
+                    });
+                    
+                    // fetch - Obtener datos del endpoint
 
-                        });
+                   /*  fetch(`https://tour-app-34c02-default-rtdb.firebaseio.com/hotels/${id}.json`)
+                        .then(response => response.json())
+                        .then(data => {
+
+                        }); */
 
                     existeinput = true;
 
@@ -509,10 +529,11 @@ $(function() {
 });
  */
 
-window.onload = () => {
+ $(window).on("load", function() {
     createSectionCities();
     clearFromViajar();
     cotizar();
     preSet();
     selectHotel();
-};
+ })
+
