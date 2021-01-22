@@ -5,6 +5,8 @@ const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>
 
 const divInputEmail = document.querySelector("#input__email");
 const divInputName = document.querySelector("#input__name");
+const  btnTop = $('#button__top');
+const  btnImg = $('#button__img');
 
 
 // Funcion que crea dinamicamente la seccion de DESTINOS
@@ -506,28 +508,56 @@ $(".nav-link" ).click(function() {
     $('.navbar-collapse').collapse('hide');
 });
 
-// Windows scroll navBar
+//Cambiar el tamano del nav segun el ancho de la pantalla
+
+$(window).resize( () => {
+
+    if($(this).width() > 975 ){
+        $('.navBar__content__link').removeClass('w-100').addClass('w-50')
+    }else{
+        $('.navBar__content__link').removeClass('w-50').addClass('w-100')
+    };
+})
+
+// Boton para volver al inicio
+
+$(window).scroll( () => {
+  if ($(window).scrollTop() > 300) {
+    btnTop.addClass('show');
+  } else {
+    btnTop.removeClass('show');
+  }
+});
+
+btnTop.on('click', (e) => {
+  e.preventDefault();
+  $('html, body').animate({scrollTop:0}, '300');
+});
+
+// Windows scroll
 $(window).scroll(function() {
 
+    // Fondo del navbar
     const divNav = $('.navBar')[0];
+    divNav.classList.toggle('navScroll', window.scrollY > 0);
 
-    if($( window ).width() > 975 ){
-        divNav.classList.toggle('navScroll', window.scrollY > 0);
-    }else{
-        divNav.classList.toggle('navScroll', window.scrollY < 0);
-    };
+    // Muestra el boton up
+    window.scrollY > 300 ?  btnTop.addClass('show') : btnTop.removeClass('show');
 
 });
 
 // Windows scroll 
 $(window).scroll(scrollAppear);
 
+// Cambiar la imagen del boton 
 
-/* 
-$(function() {
-    console.log($("#who"));
+$('#button__top').hover( 
+    () => {
+        btnImg.attr("src", "img/up_hover.svg");
+},  () => {
+        btnImg.attr("src", "img/up.svg");
 });
- */
+
 
  $(window).on("load", function() {
     createSectionCities();

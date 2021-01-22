@@ -30,13 +30,10 @@ body::-webkit-scrollbar-thumb{
 }
  */
 @media (min-width: 1025px) {
-  /* Home */
-  .banner .container-fluid {
-    /* Fonts Home */ }
-    .banner .container-fluid .banner__content div h1 {
-      font-size: 5vw; }
-    .banner .container-fluid .banner__content div p {
-      font-size: 1.5vw; } }
+  .banner .container-fluid .banner__content div h1 {
+    font-size: 5vw; }
+  .banner .container-fluid .banner__content div p {
+    font-size: 1.5vw; } }
 
 .intro__text, .intro__form, .intro__contact {
   opacity: 0;
@@ -56,11 +53,11 @@ body::-webkit-scrollbar-thumb{
   font-size: 14px;
   height: 50px;
   width: 100%;
-  z-index: 1; }
+  z-index: 1;
+  transition: all 0.4s ease-in-out; }
 
 .navScroll {
-  background-color: black;
-  transition: 0.4s; }
+  background-color: black; }
 
 .navBar__btn__custom .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><path stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/></svg>"); }
@@ -127,6 +124,29 @@ body::-webkit-scrollbar-thumb{
     border-right: 2px solid white;
     transform: rotate(135deg);
     cursor: pointer; }
+
+#button__top {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: all 0.5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1; }
+  #button__top img {
+    width: 100%; }
+
+#button__top:hover {
+  cursor: pointer; }
+
+#button__top.show {
+  opacity: 1;
+  visibility: visible; }
 
 #who {
   /* letter-spacing: .17px;
