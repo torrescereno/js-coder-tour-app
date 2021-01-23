@@ -1,4 +1,14 @@
+@media (max-width: 1024px) {
+    nav div div{
+        width: 100%;
+    }
+};
+
 @media (min-width: 1025px) {
+
+    nav div div{
+        width: 50%;
+    }
     
     .banner{
         .container-fluid {
@@ -14,5 +24,6 @@
                 }
             }
         }  
-    } 
-  }
+    }
+};
+

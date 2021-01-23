@@ -68,10 +68,10 @@ function createSectionCities() {
                         btnCotizar.textContent = 'Cotizar';
     
     
-                        const btnDetalles = document.createElement('button');
+                        const btnDetalles = document.createElement('a');
                         btnDetalles.classList.add('btn');
-                        btnDetalles.setAttribute('data-toggle', 'modal');
-                        btnDetalles.setAttribute('data-target', '#serviceModal');
+                        btnDetalles.setAttribute('role', 'button');
+                        btnDetalles.setAttribute('href', '#open-modal');
                         btnDetalles.textContent = 'Deatalles';
     
     
@@ -440,6 +440,7 @@ function preSet() {
      divInputEmail.classList.toggle('is-valid');
      divInputName.classList.toggle('is-valid');
 
+
 }
 
 // Extrae todo el contenido del localstorage y realiza el calculo de la cotizacion
@@ -502,22 +503,6 @@ divInputEmail.addEventListener('input', (e) =>{
   JQUERY  
 */
 
-// Ocultar menu con bootstrap cuando se realiza click en una categoria
-
-$(".nav-link" ).click(function() {
-    $('.navbar-collapse').collapse('hide');
-});
-
-//Cambiar el tamano del nav segun el ancho de la pantalla
-
-$(window).resize( () => {
-
-    if($(this).width() > 975 ){
-        $('.navBar__content__link').removeClass('w-100').addClass('w-50')
-    }else{
-        $('.navBar__content__link').removeClass('w-50').addClass('w-100')
-    };
-})
 
 // Boton para volver al inicio
 
@@ -542,7 +527,7 @@ $(window).scroll(function() {
     divNav.classList.toggle('navScroll', window.scrollY > 0);
 
     // Muestra el boton up
-    window.scrollY > 300 ?  btnTop.addClass('show') : btnTop.removeClass('show');
+    window.scrollY != 0 ?  btnTop.addClass('show') : btnTop.removeClass('show');
 
 });
 
