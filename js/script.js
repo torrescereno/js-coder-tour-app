@@ -515,8 +515,14 @@ $(window).scroll( () => {
 });
 
 btnTop.on('click', (e) => {
-  e.preventDefault();
-  $('html, body').animate({scrollTop:0}, '300');
+    e.preventDefault();
+    $('html, body').animate(
+        {
+            scrollTop:0},  
+        {
+            duration: 0,
+            queue: false
+        });
 });
 
 // Windows scroll
