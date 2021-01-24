@@ -1,211 +1,208 @@
-
 .not-active {
-    pointer-events: none;
-    cursor: default;
-    opacity: 0.5;
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.5;
 }
 
-.active{
-    opacity: 1;
-    pointer-events: none;
+.active {
+  opacity: 1;
+  pointer-events: none;
 }
 
-
-#travel{
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #7AB8B8;
+#travel {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #7ab8b8;
 }
 
-
-.travel__title{
-    padding-top: 50px;
+.travel__title {
+  padding-top: 50px;
 }
 
-.travel__arrows{
-    padding-top: 30px;
+.travel__arrows {
+  padding-top: 30px;
 }
 
+.travel__arrows__content {
+  white-space: nowrap;
+  text-align: center;
 
-.travel__arrows__content { 
-    white-space: nowrap;
-    text-align: center;
+  li {
+    font-size: 20px;
+    font-weight: 700;
+    display: inline-block;
+    line-height: 26px;
+    margin: 0 9px 0 -10px;
+    padding: 0 20px;
+    position: relative;
+    letter-spacing: 1px;
+    text-decoration: none;
 
-    li{
-        font-size: 20px;
-        font-weight: 700;
-        display: inline-block;
-        line-height: 26px;
-        margin: 0 9px 0 -10px;
-        padding: 0 20px;
-        position: relative;
-        letter-spacing: 1px; 
-        text-decoration: none;
-
-        a{
-            text-decoration: none;
-        }
+    a {
+      text-decoration: none;
     }
+  }
 }
 
 .travel__arrows__content li::before,
 .travel__arrows__content li::after {
-    border-right: 1px solid white;
-    content: '';
-    display: block;
-    height: 50%;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    z-index: -1;
-    transform: skewX(45deg);   
+  border-right: 1px solid white;
+  content: "";
+  display: block;
+  height: 50%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: -1;
+  transform: skewX(45deg);
 }
 .travel__arrows__content li::after {
-    bottom: 0;
-    top: auto;
-    transform: skewX(-45deg);
+  bottom: 0;
+  top: auto;
+  transform: skewX(-45deg);
 }
 
-.travel__arrows__content li:last-of-type::before, 
-.travel__arrows li:last-of-type::after { 
-    display: none; 
+.travel__arrows__content li:last-of-type::before,
+.travel__arrows li:last-of-type::after {
+  display: none;
 }
-
 
 /* .travel__arrows__content li:nth-of-type(1) a { color: white(0, 0%, 70%); } 
 .travel__arrows__content li:nth-of-type(2) a { color: white(0, 0%, 65%); } 
 .travel__arrows__content li:nth-of-type(3) a { color: white(0, 0%, 50%); } 
 .travel__arrows__content li:nth-of-type(4) a { color: white(0, 0%, 45%); } */
 
+.travel__form {
+  box-shadow: -10px 25px 50px rgba(0, 0, 0, 0.3);
+  padding: 30px;
 
-.travel__form{
-    box-shadow: -10px 25px 50px rgba(0, 0, 0, 0.3);
-    padding: 30px;
+  div {
+    div {
+      label {
+        margin-bottom: 10px;
+      }
 
-    div{
+      input {
+        background-color: transparent;
+        border: none;
+        border-radius: 0;
+        border-bottom: 2px solid white;
+        margin-bottom: 10px;
+        color: white;
+      }
 
-        div{
+      input:focus {
+        background-color: transparent;
+        border-bottom: 2px solid white;
+        outline: none;
+        outline-width: 0;
+        box-shadow: none;
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+        color: white;
+      }
 
-            label{
-                margin-bottom: 10px;
-            }
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
 
-            input{
-                background-color: transparent;
-                border: none;
-                border-radius: 0; 
-                border-bottom: 2px solid white;
-                margin-bottom: 10px;
-            }
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
 
-            input:focus{ 
-                background-color: transparent;
-                border-bottom: 2px solid white;
-                outline: none;
-                outline-width: 0;
-                box-shadow: none;
-                -moz-box-shadow: none;
-                -webkit-box-shadow: none;
-            }
+      input[type="number"] {
+        -moz-appearance: textfield;
+      }
 
-            input::-webkit-outer-spin-button,
-            input::-webkit-inner-spin-button {
-                -webkit-appearance: none;
-                margin: 0;
-            }
+      a {
+        width: 100%;
+        border: 2px solid white;
+        color: white;
+        border-radius: 0;
+        margin-top: 20px;
+      }
 
-            a{
+      a:hover {
+        color: white;
+      }
 
-                width: 100%;
-                border: 2px solid white;
-                color: white;
-                border-radius: 0;
-                margin-top: 20px;
-            }
+      button:hover {
+        color: white;
+      }
 
-            a:hover{
-                color: white;
-            }
+      button {
+        width: 100%;
+        border: 2px solid white;
+        color: white;
+        border-radius: 0;
+        margin-top: 20px;
+      }
 
-            button:hover{
-                color: white;
-            }
-
-            button{
-
-                width: 100%;
-                border: 2px solid white;
-                color: white;
-                border-radius: 0;
-                margin-top: 20px;
-            }
-
-            button:hover{
-                color: white;
-            }
-        }
+      button:hover {
+        color: white;
+      }
     }
+  }
 
-    .travel__contenedor__cities{
-        text-align: center;
-        display: flex;
-        flex-direction: row-reverse;
-        align-items: center;
-        justify-content: space-around;
+  .travel__contenedor__cities {
+    text-align: center;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-around;
 
-        padding: 20px;
-        cursor: pointer;
-        outline: 1px solid white;
-        margin: 10px;
+    padding: 20px;
+    cursor: pointer;
+    outline: 1px solid white;
+    margin: 10px;
 
-        img {
-            display: none;
-            width: 20px;
-            height: 20px;
-        }
-
+    img {
+      display: none;
+      width: 20px;
+      height: 20px;
     }
+  }
 
-    .travel__contenedor__hotel{
-        
-        cursor: pointer;
-        text-align: center;
-        padding: 10px;
-        margin: 5px;
+  .travel__contenedor__hotel {
+    cursor: pointer;
+    text-align: center;
+    padding: 10px;
+    margin: 5px;
 
-
-        img{
-            display: inline;
-            width: 30%;
-        }
-        
+    img {
+      display: inline;
+      width: 30%;
     }
+  }
 
-    /* .travel__contenedor__cities:hover{
+  /* .travel__contenedor__cities:hover{
         outline: 3px solid white;  
     }*/
 
-    .travel__form__datos{
-        display: none;
-    }
+  .travel__form__datos {
+    display: none;
+  }
 
-    .travel__form__cities{
-        display: none;
-    }
+  .travel__form__cities {
+    display: none;
+  }
 
-    .travel__form__people{
-        display: none;
-    }
+  .travel__form__people {
+    display: none;
+  }
 
-    .travel__form__hotel{
-        display: none;
-    }
+  .travel__form__hotel {
+    display: none;
+  }
 
-    .travel__form__result{
-        display: flex;
-    }
-    
+  .travel__form__result {
+    display: flex;
+  }
 }

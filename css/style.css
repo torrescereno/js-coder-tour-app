@@ -291,7 +291,7 @@ body::-webkit-scrollbar-thumb{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #7AB8B8; }
+  background-color: #7ab8b8; }
 
 .travel__title {
   padding-top: 50px; }
@@ -318,7 +318,7 @@ body::-webkit-scrollbar-thumb{
 .travel__arrows__content li::before,
 .travel__arrows__content li::after {
   border-right: 1px solid white;
-  content: '';
+  content: "";
   display: block;
   height: 50%;
   position: absolute;
@@ -354,7 +354,8 @@ body::-webkit-scrollbar-thumb{
     border: none;
     border-radius: 0;
     border-bottom: 2px solid white;
-    margin-bottom: 10px; }
+    margin-bottom: 10px;
+    color: white; }
   .travel__form div div input:focus {
     background-color: transparent;
     border-bottom: 2px solid white;
@@ -362,11 +363,18 @@ body::-webkit-scrollbar-thumb{
     outline-width: 0;
     box-shadow: none;
     -moz-box-shadow: none;
-    -webkit-box-shadow: none; }
+    -webkit-box-shadow: none;
+    color: white; }
   .travel__form div div input::-webkit-outer-spin-button,
   .travel__form div div input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0; }
+  .travel__form div div input[type="number"]::-webkit-inner-spin-button,
+  .travel__form div div input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0; }
+  .travel__form div div input[type="number"] {
+    -moz-appearance: textfield; }
   .travel__form div div a {
     width: 100%;
     border: 2px solid white;
@@ -432,24 +440,28 @@ body::-webkit-scrollbar-thumb{
     border: none;
     border-radius: 0;
     border-bottom: 2px solid white;
-    margin-bottom: 10px; }
+    margin-bottom: 10px;
+    color: white; }
   .contact__form .contact__form__content div input:focus {
     outline: none;
     outline-width: 0;
     box-shadow: none;
     -moz-box-shadow: none;
-    -webkit-box-shadow: none; }
+    -webkit-box-shadow: none;
+    color: white; }
   .contact__form .contact__form__content div textarea {
     background-color: transparent;
     border: none;
     border-radius: 0;
-    border-bottom: 2px solid white; }
+    border-bottom: 2px solid white;
+    color: white; }
   .contact__form .contact__form__content div textarea:focus {
     outline: none;
     outline-width: 0;
     box-shadow: none;
     -moz-box-shadow: none;
-    -webkit-box-shadow: none; }
+    -webkit-box-shadow: none;
+    color: white; }
   .contact__form .contact__form__content div button {
     width: 100%;
     border: 2px solid white;
