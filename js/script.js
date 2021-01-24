@@ -440,6 +440,11 @@ function preSet() {
      divInputEmail.classList.toggle('is-valid');
      divInputName.classList.toggle('is-valid');
 
+     
+
+     // Borrar contendio de los inputs en el formularios
+     document.querySelector('.contact__form__content').reset();
+     document.querySelector('.travel__form').reset();
 
 }
 
