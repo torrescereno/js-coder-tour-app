@@ -445,12 +445,9 @@ function preSet() {
      // Borrar contendio de los inputs en el formularios
      document.querySelector('.contact__form__content').reset();
      document.querySelector('.travel__form').reset();
-<<<<<<< HEAD
 
      // Borrar el local storage
      localStorage.clear();
-=======
->>>>>>> c3b98853683e199c67081b7938e2e21f45a3552e
 
 }
 
