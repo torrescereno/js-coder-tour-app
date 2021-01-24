@@ -456,25 +456,25 @@ function showResults() {
     const precioVuelo  = localStorage.getItem("precio_destino");
 
     const spanNombre = document.querySelector("#resultNombre")
-    spanNombre.innerText = `Nombre: ${nombrePasjero}`;
+    spanNombre.innerText = nombrePasjero;
 
     const spanDestino = document.querySelector("#resultDestino")
-    spanDestino.innerText = `Destino: ${destinoSeleccionado}`;
+    spanDestino.innerText = destinoSeleccionado;
 
     const spanPasajeros = document.querySelector("#resultPasajeros")
-    spanPasajeros.innerText = `Cantidad de pasajeros: ${numeroPasajeros}`;
+    spanPasajeros.innerText = numeroPasajeros;
 
     const spanPrecioHotel = document.querySelector("#precioHotel")
-    spanPrecioHotel.innerText = `Precio del hotel: ${precioHotel}`;
+    spanPrecioHotel.innerText = precioHotel;
 
     const spanPrecioVuelo = document.querySelector("#precioVuelo")
-    spanPrecioVuelo.innerText = `Precio del vuelo: ${precioVuelo}`;
+    spanPrecioVuelo.innerText = precioVuelo;
 
     const spanTotal = document.querySelector("#resultTotal")
 
     const result = ( parseInt(precioVuelo) + parseInt(precioHotel)) * parseInt(numeroPasajeros);
 
-    spanTotal.innerText = `Total: ${result}`; 
+    spanTotal.innerText = result; 
 
 }
 

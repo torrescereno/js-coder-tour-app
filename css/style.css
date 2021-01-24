@@ -416,7 +416,7 @@ body::-webkit-scrollbar-thumb{
   .travel__form .travel__form__hotel {
     display: none; }
   .travel__form .travel__form__result {
-    display: none; }
+    display: flex; }
 
 #contact {
   background-color: #6AAEBF; }

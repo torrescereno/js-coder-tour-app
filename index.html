@@ -260,29 +260,39 @@
 
                         <!-- CUANTOS SON FORM -->
 
-                        <div class="row travel__form__result justify-content-center align-content-center p-1"
+                        <div class="row travel__form__result justify-content-center align-content-center p-1 text-center"
                             id="travelResult">
-                            <div class="col-12 p-md-3 pb-3 text-center">
-                                <p>Resultado de la cotizacion</p>
-                            </div>
+  
+                            <span class="col-10 p-md-1">
+                                <h4>Gracias <b id="resultNombre"></b> por cotizar con nostros!</h4>
+                            </span>
 
-                            <span class="col-10 p-md-1" id="resultNombre"></span>
+                            <span class="col-10 p-md-1">
+                                Destino seleccionado <b id="resultDestino"></b>
+                            </span>
 
-                            <span class="col-10 p-md-1" id="resultDestino"></span>
+                            <span class="col-10 p-md-1">
+                                Número de pasajeros <b id="resultPasajeros"></b>
+                            </span>
 
-                            <span class="col-10 p-md-1" id="resultPasajeros"></span>
+                            <span class="col-10 p-md-1">
+                                Precio del hotel por persona <b id="precioHotel"></b>
+                            </span>
 
-                            <span class="col-10 p-md-1" id="precioHotel"></span>
+                            <span class="col-10 p-md-1">
+                                Precio del vuelo por persona <b id="precioVuelo"></b>
+                            </span>
 
-                            <span class="col-10 p-md-1" id="precioVuelo"></span>
+                            <span class="col-10 p-md-1">
+                                Total <b id="resultTotal"></b>
+                            </span>
 
-                            <span class="col-10 p-md-1" id="resultTotal"></span>
+                            <span class="col-10 p-md-1">
+                                Pronto te llegara un correo con las fechas disponibles
+                            </span>
 
                             <div class="col-12 col-md-5 text-center">
                                 <button type="reset" class="btn form__btn__next">Volver a cotizar</button>
-                            </div>
-                            <div class="col-12 col-md-5 text-center">
-                                <a class="btn">Fechas disponibles</a>
                             </div>
 
                         </div>
