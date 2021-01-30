@@ -12,17 +12,3 @@ Tecnologías usadas
 5. Firebase
 6. CSS/SASS
 7. Bootstrap v4
-
-Programa del curso
-===
-!["Programa"](img/programa.png "Programa del curso")
-
-Cronograma de Entregas
-===
-
-!["Requerimientos"](img/req.png "Cronograma de Entregas")
-
-Demo
-===
-
-[Github Pages](https://torrescereno.github.io/js-coder-tour-app/) v1
