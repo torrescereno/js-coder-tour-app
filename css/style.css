@@ -166,11 +166,11 @@ body::-webkit-scrollbar-thumb{
     top: 90vh; } }
 
 #who {
-  /* letter-spacing: .17px;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; */
+  letter-spacing: .17px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-color: #C3ADA5; }
 
 .who__content .who__content__icon img {

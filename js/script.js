@@ -476,16 +476,19 @@ $(window).click( function (e) {
     }
 })
 
-
-
-// Boton para volver al inicio
-
 $(window).scroll(() => {
-    if ($(window).scrollTop() > 300) {
-        btnTop.addClass('show');
-    } else {
-        btnTop.removeClass('show');
-    }
+
+    // Fondo del navbar 
+    const divNav = $('.navBar')[0];
+    const scrollY = window.scrollY;
+
+    // Muestra el boton up
+    btnTop[0].classList.toggle('show', scrollY != 0)
+
+    // Agregar estilo al nav
+    divNav.classList.toggle('navScroll', scrollY > 0);
+
+    scrollAppear();
 });
 
 btnTop.on('click', (e) => {
@@ -500,21 +503,6 @@ btnTop.on('click', (e) => {
         });
 });
 
-// Windows scroll
-$(window).scroll(function () {
-
-    // Fondo del navbar
-    const divNav = $('.navBar')[0];
-    divNav.classList.toggle('navScroll', window.scrollY > 0);
-
-
-    // Muestra el boton up
-    window.scrollY != 0 ? btnTop.addClass('show') : btnTop.removeClass('show');
-
-});
-
-// Windows scroll 
-$(window).scroll(scrollAppear);
 
 // Cambiar la imagen del boton 
 $('#button__top').hover(
