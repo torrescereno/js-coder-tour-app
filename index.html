@@ -15,14 +15,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Capriola&display=swap" rel="stylesheet" />
     <!-- Estilos -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" rel="preload" href="css/style.css" />
     <title>Proyecto JS Coderhouse</title>
 </head>
 
 <body class="body__hiden">
 
-
-
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
     <main>
 
         <!-- Boton para volver al inicio -->
@@ -52,8 +53,8 @@
 
             <div class="container-fluid">
                 <div class="row banner__content justify-content-center">
-                    <div class="col-8">
-                        <h1>TourApp</h1>
+                    <div class="col-12">
+                        <h1>JusTravel</h1>
                         <p>Descubre los mejores destinos para disfrutar</p>
                     </div>
                 </div>
@@ -78,20 +79,10 @@
                     <div class="col-12 col-lg-4 who__content__text ">
                         <h2>Nosotros</h2>
                         <p>
-                            Queremos que disfrutes ofreciendote los mejores tours a los
-                            lugares que siempre soñaste conocer
+                            Somos la compañía líder en distribución online de actividades, excursiones y visitas guiadas en español en los principales destinos turísticos del mundo.
                         </p>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                            Necessitatibus, enim?
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                            Necessitatibus, enim?
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                            Necessitatibus, enim?
+                            Queremos que disfrutes ofreciendote los mejores tours a los lugares que siempre soñaste conocer
                         </p>
                     </div>
                 </div>
@@ -107,10 +98,19 @@
             <div id="open-modal" class="modal-window">
                 <div class="modal-content">
                     <a href="#service" title="" class="modal-close">X</a>
-                    <h1 id="modal-titulo">Titulo del viaje</h1>
-                    <div id="modal-descripcion">Descriocion del viaje</div>
+                    <h1 id="modal-titulo"></h1>
+                    <div id="modal-descripcion"></div>
                 </div>
             </div>
+
+            <div class="row justify-content-center">
+                <h2>Destinos disponibles</h2>
+            </div>
+
+            <div class="row service__content justify-content-center mt-3 mt-lg-4">
+
+            </div>
+            
         </div>
 
         </div>
@@ -264,7 +264,7 @@
                             id="travelResult">
   
                             <span class="col-10 p-md-1">
-                                <h4>Gracias <b id="resultNombre"></b> por cotizar con nostros!</h4>
+                                <h4>Gracias <b id="resultNombre"></b> por cotizar con nosotros!</h4>
                             </span>
 
                             <span class="col-10 p-md-1">
@@ -396,7 +396,7 @@
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
     <!-- JS -->
-    <script defer src="js/script.js"></script>
+    <script defer rel="preload" src="js/script.js"></script>
 </body>
 
 </html>

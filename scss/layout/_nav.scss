@@ -8,13 +8,13 @@
     font-size: 14px;
     height: 50px;
     width: 100%;
-    z-index: 1;
     transition: all 0.5s;
 }
 
 .navScroll{
   // Agregar un diseño para el nav  
   background-color: black;
+  z-index: 1;
 }
 
 #navBar__content{

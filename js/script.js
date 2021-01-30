@@ -5,8 +5,8 @@ const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>
 
 const divInputEmail = document.querySelector("#input__email");
 const divInputName = document.querySelector("#input__name");
-const  btnTop = $('#button__top');
-const  btnImg = $('#button__img');
+const btnTop = $('#button__top');
+const btnImg = $('#button__img');
 
 
 // Funcion que crea dinamicamente la seccion de DESTINOS
@@ -14,90 +14,33 @@ const  btnImg = $('#button__img');
 
 function createSectionCities() {
 
-    // Div principal
-    const divService = document.querySelector('#service');
+    const divService = $('.service__content');
 
-    // Nodo del titulo
-    const nodeTitle = document.createElement('div');
-    nodeTitle.classList.add("row", "justify-content-center");
+    // AJAX - llamar al endpoint de la tabla cities
+    $.ajax({
+        url: 'https://tour-app-34c02-default-rtdb.firebaseio.com/cities.json',
+        success: function (data) {
+            for (const key in data) {
+                if (Object.hasOwnProperty.call(data, key)) {
 
-    const nodeH2 = document.createElement('h2');
-    nodeH2.textContent = 'Destinos disponibles';
+                    const e = data[key];
 
-    nodeTitle.appendChild(nodeH2)
-
-    // Insertar nodo de titulo
-    divService.appendChild(nodeTitle)
-
-    // Crar row de seccion de ciudades
-    const nodeRowCities = document.createElement('div');
-    nodeRowCities.classList.add('row', 'service__content', 'justify-content-center', 'mt-3', 'mt-lg-4');
-
-        // AJAX - llamar al endpoint de la tabla cities
-        $.ajax({
-            url: 'https://tour-app-34c02-default-rtdb.firebaseio.com/cities.json',
-            success: function (data) {
-                for (const key in data) {
-                    if (Object.hasOwnProperty.call(data, key)) {
-    
-                        const e = data[key];
-    
-                        // nodeDivCities 
-                        const nodeDivCities = document.createElement('div');
-                        nodeDivCities.classList.add('col-9', 'col-md-7', 'col-lg-3');
-    
-                        // IMG
-                        const imgCities = document.createElement('img');
-                        imgCities.setAttribute('src', e.img)
-    
-                        // Title cities
-                        const titleCities = document.createElement('h6');
-                        titleCities.textContent = e.nombre;
-    
-                        const divCities = document.createElement('span');
-                        divCities.classList.add('row','justify-content-center')
-    
-                        // Seccion span de botones
-                        const spanCities = document.createElement('span');
-                        spanCities.classList.add('col-12');
-    
-                        // creacion de botones
-                        const btnCotizar = document.createElement('button');
-                        btnCotizar.classList.add('btn');
-                        btnCotizar.setAttribute('onclick', "location.href='#travel'")
-                        btnCotizar.textContent = 'Cotizar';
-    
-    
-                        const btnDetalles = document.createElement('a');
-                        btnDetalles.classList.add('btn');
-                        btnDetalles.setAttribute('role', 'button');
-                        btnDetalles.setAttribute('href', '#open-modal');
-                        btnDetalles.textContent = 'Deatalles';
-    
-    
-                        // Union de nodos
-                        nodeRowCities.appendChild(nodeDivCities);
-    
-                        nodeDivCities.appendChild(imgCities);
-                        nodeDivCities.appendChild(titleCities);
-                        nodeDivCities.appendChild(divCities);
-                        divCities.appendChild(spanCities);
-                        spanCities.appendChild(btnCotizar);
-                        spanCities.appendChild(btnDetalles);
-    
-                        divService.appendChild(nodeRowCities);
-    
-                    }
+                    divService.append(`
+                        <div class="col-9 col-md-7 col-lg-3">
+                            <img src="${e.img}">
+                            <h6>${e.nombre}</h6>
+                            <span class="row justify-content-center">
+                                <span class="col-12">
+                                    <button class="btn" onclick="location.href='#travel'" >Cotizar</button>
+                                    <a id="${e.id}" class="btn btn-cities" role="button" href="#open-modal">Detalles</a>
+                                </span>
+                            </span>
+                        </div>
+                        `);
                 }
             }
-        })
-
-    // fetch - llamar al endpoint de la tabla cities
-    /* fetch('https://tour-app-34c02-default-rtdb.firebaseio.com/cities.json')
-        .then(response => response.json())
-        .then(data => {
-            
-        }); */
+        }
+    })
 }
 
 // Funcion que selecciona la ciudad de destino, habilitando una imagen al nombre de la ciudad
@@ -164,7 +107,7 @@ function cotizar() {
     divFrom.addEventListener('click', (e) => {
 
 
-        if (e.target.classList[1]=== 'form__btn__next' || e.target.classList[1]=== 'form__btn__return') {
+        if (e.target.classList[1] === 'form__btn__next' || e.target.classList[1] === 'form__btn__return') {
 
             const divActual = e.target.parentElement.parentElement;
             const formInput = divActual.querySelector("input");
@@ -223,21 +166,13 @@ function cotizar() {
                                         // Alamcenar en storage
                                         localStorage.setItem("precio_destino", element.precio);
                                         localStorage.setItem("destino", destino);
-                                        
+
                                     }
-                                    
+
                                 }
                             }
                         }
                     })
-
-                    // fetch - Obtener el precio desde el endpoint
-
-                    /* fetch(`https://tour-app-34c02-default-rtdb.firebaseio.com/cities/.json`)
-                        .then(response => response.json())
-                        .then(data => {
-
-                        }) */
 
                     existeinput = true;
 
@@ -255,7 +190,7 @@ function cotizar() {
                         existeinput = true;
                     }
 
-                    
+
                     break;
 
                 case 'travelHotel':
@@ -275,7 +210,7 @@ function cotizar() {
                                 id = 2;
                             } else if (divHotel.id === 'hotel_four') {
                                 id = 1;
-                            }else{
+                            } else {
                                 id = 0;
                             }
                         }
@@ -294,14 +229,7 @@ function cotizar() {
                             showResults();
                         }
                     });
-                    
-                    // fetch - Obtener datos del endpoint
 
-                   /*  fetch(`https://tour-app-34c02-default-rtdb.firebaseio.com/hotels/${id}.json`)
-                        .then(response => response.json())
-                        .then(data => {
-
-                        }); */
 
                     existeinput = true;
 
@@ -436,18 +364,18 @@ function preSet() {
     divArrows.children[0].children[0].classList.toggle('active') */
 
 
-     // Limpiar clases de los input del form
-     divInputEmail.classList.toggle('is-valid');
-     divInputName.classList.toggle('is-valid');
+    // Limpiar clases de los input del form
+    divInputEmail.classList.toggle('is-valid');
+    divInputName.classList.toggle('is-valid');
 
-     
 
-     // Borrar contendio de los inputs en el formularios
-     document.querySelector('.contact__form__content').reset();
-     document.querySelector('.travel__form').reset();
 
-     // Borrar el local storage
-     localStorage.clear();
+    // Borrar contendio de los inputs en el formularios
+    document.querySelector('.contact__form__content').reset();
+    document.querySelector('.travel__form').reset();
+
+    // Borrar el local storage
+    localStorage.clear();
 
 }
 
@@ -461,7 +389,7 @@ function showResults() {
     const destinoSeleccionado = localStorage.getItem("destino");
     const numeroPasajeros = localStorage.getItem("pasajeros");
     const precioHotel = localStorage.getItem("precio_hotel");
-    const precioVuelo  = localStorage.getItem("precio_destino");
+    const precioVuelo = localStorage.getItem("precio_destino");
 
     const spanNombre = document.querySelector("#resultNombre")
     spanNombre.innerText = nombrePasjero;
@@ -480,11 +408,13 @@ function showResults() {
 
     const spanTotal = document.querySelector("#resultTotal")
 
-    const result = ( parseInt(precioVuelo) + parseInt(precioHotel)) * parseInt(numeroPasajeros);
+    const result = (parseInt(precioVuelo) + parseInt(precioHotel)) * parseInt(numeroPasajeros);
 
-    spanTotal.innerText = result; 
+    spanTotal.innerText = result;
 
 }
+
+
 
 /* 
     Funciones listener del formulario de cotizacion
@@ -492,18 +422,18 @@ function showResults() {
     y agregan o quita la clase is-invalid y is-valid
 */
 
-divInputName.addEventListener('input', (e) =>{
+divInputName.addEventListener('input', (e) => {
 
     const classInputName = divInputName.classList;
 
-    !!e.target.value ? classInputName.contains('is-invalid') ? classInputName.replace('is-invalid', 'is-valid') : classInputName.add('is-valid') : classInputName.add('is-invalid'); 
+    !!e.target.value ? classInputName.contains('is-invalid') ? classInputName.replace('is-invalid', 'is-valid') : classInputName.add('is-valid') : classInputName.add('is-invalid');
 })
 
-divInputEmail.addEventListener('input', (e) =>{
+divInputEmail.addEventListener('input', (e) => {
 
     const classInputEmail = divInputEmail.classList;
 
-    re.test(e.target.value) ? classInputEmail.contains('is-invalid') ? classInputEmail.replace('is-invalid', 'is-valid') : classInputEmail.add('is-valid') : classInputEmail.add('is-invalid'); 
+    re.test(e.target.value) ? classInputEmail.contains('is-invalid') ? classInputEmail.replace('is-invalid', 'is-valid') : classInputEmail.add('is-valid') : classInputEmail.add('is-invalid');
 })
 
 
@@ -511,22 +441,59 @@ divInputEmail.addEventListener('input', (e) =>{
   JQUERY  
 */
 
+// Obtiene los detalles de las ciudades
+$(window).click( function (e) {
+
+    const classBtn = e.target.classList;
+
+    for (let i = 0; i < classBtn.length; i++) {
+
+        const element = classBtn[i];
+
+        if (element === 'btn-cities') {
+
+           $.ajax({
+                url: 'https://tour-app-34c02-default-rtdb.firebaseio.com/cities/.json',
+                success: function (data) {
+                    for (const key in data) {
+                        if (Object.hasOwnProperty.call(data, key)) {
+
+                            const element = data[key];
+
+                            if (element.id == e.target.id) {
+
+                                $('#modal-titulo').text(element.nombre);
+                                $('#modal-descripcion').text(element.descripcion);
+                            }
+
+                        }
+                    }
+                }
+            })
+
+        }
+
+    }
+})
+
+
 
 // Boton para volver al inicio
 
-$(window).scroll( () => {
-  if ($(window).scrollTop() > 300) {
-    btnTop.addClass('show');
-  } else {
-    btnTop.removeClass('show');
-  }
+$(window).scroll(() => {
+    if ($(window).scrollTop() > 300) {
+        btnTop.addClass('show');
+    } else {
+        btnTop.removeClass('show');
+    }
 });
 
 btnTop.on('click', (e) => {
     e.preventDefault();
     $('html, body').animate(
         {
-            scrollTop:0},  
+            scrollTop: 0
+        },
         {
             duration: 0,
             queue: false
@@ -534,14 +501,15 @@ btnTop.on('click', (e) => {
 });
 
 // Windows scroll
-$(window).scroll(function() {
+$(window).scroll(function () {
 
     // Fondo del navbar
     const divNav = $('.navBar')[0];
     divNav.classList.toggle('navScroll', window.scrollY > 0);
 
+
     // Muestra el boton up
-    window.scrollY != 0 ?  btnTop.addClass('show') : btnTop.removeClass('show');
+    window.scrollY != 0 ? btnTop.addClass('show') : btnTop.removeClass('show');
 
 });
 
@@ -549,20 +517,33 @@ $(window).scroll(function() {
 $(window).scroll(scrollAppear);
 
 // Cambiar la imagen del boton 
-
-$('#button__top').hover( 
+$('#button__top').hover(
     () => {
         btnImg.attr("src", "img/up_hover.svg");
-},  () => {
+    }, () => {
         btnImg.attr("src", "img/up.svg");
-});
+    });
 
+// loader 
+function loader() {
+    $(".loader-container").fadeOut(500)
+    // $('.banner__content').animate({
+    //     top: '45%',
+    //   },
+    //   {
+    //     duration: 1500,
+    //     queue: false
+    //   });
+};
 
- $(window).on("load", function() {
+$(window).on("load", function () {
     createSectionCities();
     clearFromViajar();
     cotizar();
     preSet();
     selectHotel();
- })
+    loader();
+
+})
+
 
