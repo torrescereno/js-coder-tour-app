@@ -17,9 +17,6 @@ Programa
 ===
 ![programa](https://user-images.githubusercontent.com/33109218/106369566-5c6b1100-6331-11eb-8e56-96493a8444ce.png)
 
-Cronograma de Entregas
-===
-![req](https://user-images.githubusercontent.com/33109218/106369565-5bd27a80-6331-11eb-8a65-a87917a389c6.png)
 
 Demo
 ===
